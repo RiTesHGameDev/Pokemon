@@ -1,12 +1,19 @@
 #include <iostream>
 using namespace std;
 
+enum PokemonChoice
+{
+    Bulbasaur,
+    Charmander,
+    Squirtle,
+    InvalidChoice,
+};
 int main() 
 {
     //Variable Intialization |
     string player_name;
     int choice;
-    string chosen_pokemon;
+    PokemonChoice chosen_pokemon = InvalidChoice;
 
     //Introduction by Professor |
     cout << "|___________________| POKEMON |______________________|" << endl;
@@ -31,27 +38,40 @@ int main()
     switch (choice)
     {
         case 1:
-            chosen_pokemon = "Bulbasaur";
-            cout << "PROFESSOR OAK : A fine choice! Bulbasaur !" << endl;
+            chosen_pokemon = Bulbasaur;
             break;
         case 2:
-            chosen_pokemon = "Charmander";
-            cout << "PROFESSOR OAK : A fiery choice! Charmander !" << endl;
+            chosen_pokemon = Charmander;
             break;
         case 3:
-            chosen_pokemon = "Squirtle";
-            cout << "PROFESSOR OAK : A wise choice! Squirtle !" << endl;
+            chosen_pokemon = Squirtle;
             break;
         default:
-            cout << "PROFESSOR OAK : That's is not in the options but Let me do it for you. " << endl;
-            chosen_pokemon = "Pikachu";
-            cout << "PROFESSOR OAK : I have chosen something special for you and that is --> Pikachu \nPROFESSOR OAK : HAHA! seems surprised !! Let's get going !!! " << endl;
+            chosen_pokemon = InvalidChoice;
             break;
+    }
+    //Respond back on Chosen Pokemon
+    switch (chosen_pokemon)
+    {
+    case Bulbasaur:
+        cout << "PROFESSOR OAK : A fine choice! Bulbasaur !" << endl;
+        break;
+    case Charmander:
+        cout << "PROFESSOR OAK : A fiery choice! Charmander !" << endl;
+        break;
+    case Squirtle:
+        cout << "PROFESSOR OAK : A wise choice! Squirtle !" << endl;
+        break;
+    default:
+        cout << "PROFESSOR OAK : That's is not in the options but Let me do it for you. " << endl;
+        chosen_pokemon = Charmander;
+        cout << "PROFESSOR OAK : A fiery choice! Charmander !" << endl;
+        break;
     }
     
     //Concluding |
     cout << "_____________________________________________________" << endl;
-    cout << "PROFESSOR OAK :" << chosen_pokemon << " and you " << player_name << " are going to be the best of friends." << endl;
+    cout << "PROFESSOR OAK :" << ( chosen_pokemon == Charmander ? "Charmander" : chosen_pokemon == Bulbasaur ? "Bulbasaur" : "Squirtle" ) << " and you " << player_name << " are going to be the best of friends." << endl;
     cout << "PROFESSOR OAK : Your journey begins now! Get ready to explore" << endl;
     cout << "_____________________________________________________" << endl;
 
