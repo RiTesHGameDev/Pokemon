@@ -26,17 +26,35 @@ public:
     PokemonType type;
     int health;
 
-    //CONTRUCTOR
+    //CONTRUCTORS
 public:
-    Pokemon()
-    {
 
+    Pokemon() //DEFAULT CONTRUCTOR
+    {
+        name = "Pikachu";
+        type = PokemonType::Electric;
+        health = 10;
+        cout << "A new Pokemon " << name << " has been created with the default !" << endl;
     }
-    Pokemon(string p_name, PokemonType p_type, int p_health)
+    Pokemon(string p_name, PokemonType p_type, int p_health)  //PARAMETERIZED CONSTRUCTOR
     {
         name = p_name;
         type = p_type;
         health = p_health;
+        cout << "A new Pokemon " << name << " has been created !" << endl;
+    }
+    Pokemon(const Pokemon &other) //DEEP COPY CONTRUCTOR
+    {
+        name = other.name;
+        type = other.type;
+        health = other.health;
+        cout << "A new Pokemon has been copied from !" << other.name << endl;
+    }
+
+    //DESTRUCTOR
+    ~Pokemon() 
+    {
+        cout << name << "has been released." << endl;
     }
     //ATTACK METHOD
     void attack()
@@ -46,10 +64,31 @@ public:
 };
 class Player
 {
-    //PRO/0PERTIES OR ATTRIBUTES
+    //PROP0PERTIES OR ATTRIBUTES
 public:
     string name;
     Pokemon chosenPokemon;
+
+    //CONTRUCTORS
+public:
+    Player() //DEFAULT CONTRUCTOR
+    {
+        name = "Trainer";
+        chosenPokemon = Pokemon();
+        cout << "A new player named " << name << " has been created! with default !" << endl;
+    }
+    Player(string p_name,Pokemon p_chosenPokemon) //PARAMETERIZED CONSTRUCTOR
+    {
+        name = p_name;
+        chosenPokemon = p_chosenPokemon;
+        cout << "A new player named " << name << " has been created!" << endl;
+    }
+    Player(const Player &other) //DEEP COPY CONTRUCTOR
+    {
+        name = other.name;
+        chosenPokemon = other.chosenPokemon;
+        cout << "A new Player has been copied from !" << other.name << endl;
+    }
 
     //METHOD FOR CHOSSING POKEMON
     void choosePokemon(int choice)
@@ -84,6 +123,13 @@ class ProfessorOak
 public:
     string name;
     Player player;
+
+    //CONTRUCTOR
+    /*ProfessorOak(string p_name) 
+    {
+        name = p_name;
+        cout << "Here is our Pokemon Professor :" << name << endl;
+    }*/
 
     //METHOD FOR GREETING PLAYER
     void greetPlayer(Player& player)
@@ -124,8 +170,6 @@ int main()
     placeholderPokemon.name = "Pikachu";
     placeholderPokemon.type = PokemonType::Electric;
     placeholderPokemon.health = 40;
-
-    player.name = "Trainer";
 
     professor.name = "Professor Oak";
     professor.greetPlayer(player);
