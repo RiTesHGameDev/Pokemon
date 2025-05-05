@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include "PokemonType.h"
+#include "PokemonChoice.h"
 using namespace std;
 
 void clearConsole() 
@@ -15,22 +17,7 @@ void waitForEnter()
 {
     cin.get();
 }
-enum class PokemonChoice
-{
-    Bulbasaur = 1,
-    Charmander,
-    Squirtle,
-    Pikachu,//default
-};
-enum class PokemonType
-{
-    Fire,
-    Electric,
-    Water,
-    Earth,
-    Grass,
-    Normal,//default
-};
+
 class Pokemon
 {
     //PROPERTIES
@@ -271,7 +258,7 @@ int main()
     Pokemon charmander("Charmander", PokemonType::Fire, 100);
 
     ProfessorOak professor("PROFESSOR OAK");
-    Player player("Ash",charmander);
+    Player player("Ash", charmander);
 
     // Greet the player and offer Pokemon choices
     professor.greetPlayer(player);
@@ -286,4 +273,4 @@ int main()
 
     system("pause");
     return 0;
-#include "header.h"
+}
