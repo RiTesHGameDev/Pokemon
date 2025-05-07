@@ -1,11 +1,13 @@
+#include "Pokemon.hpp"
 #include<iostream>
-#include "PokemonType.h"
-#include "PokemonChoice.h"
-#include "Utility.h"
-#include "Player.h"
+#include "PokemonChoice.hpp"
+#include "PokemonType.hpp"
+#include "Utilities.hpp"
+#include "Player.hpp"
 using namespace std;
 
-Player::Player() {
+Player::Player() 
+{
     name = "Trainer";
     chosenPokemon = Pokemon();
 }
@@ -13,7 +15,7 @@ Player::Player(string p_name, Pokemon p_chosenPokemon) {
     name = p_name;
     chosenPokemon = p_chosenPokemon;
 }
-Player::choosePokemon(int choice) {
+void Player::choosePokemon(int choice) {
     switch ((PokemonChoice)choice)
     {
     case PokemonChoice::Bulbasaur:
@@ -31,5 +33,5 @@ Player::choosePokemon(int choice) {
         break;
     }
     cout << "Player " << name << " chose " << chosenPokemon.name << endl;
-    Utility::waitForEnter();
+    Utilities::waitForEnter();
 }
