@@ -47,53 +47,6 @@ class Pokemon
             cout << "Attack with a powerful move!" << endl;
         }
 };
-class Player
-{
-    //PROP0PERTIES OR ATTRIBUTES
-    public:
-        string name;
-        Pokemon chosenPokemon;
-
-        Player() //DEFAULT CONTRUCTOR
-        {
-            name = "Trainer";
-            chosenPokemon = Pokemon();
-        }
-
-        //PARAMETERIZED CONSTRUCTOR
-        Player(string p_name,Pokemon p_chosenPokemon)
-        {
-            name = p_name;
-            chosenPokemon = p_chosenPokemon;
-        }
-
-        //METHOD FOR CHOSSING POKEMON
-        void choosePokemon(int choice)
-        {
-            switch ((PokemonChoice)choice)
-            {
-            case PokemonChoice::Bulbasaur:
-                chosenPokemon = Pokemon("Bulbasaur", PokemonType::Grass, 100);
-                break;
-
-            case PokemonChoice::Charmander:
-                chosenPokemon = Pokemon("Charmander", PokemonType::Fire, 100);
-                break;
-            case PokemonChoice::Squirtle:
-                chosenPokemon = Pokemon("Squirtle", PokemonType::Water, 100);
-                break;
-            default:
-                chosenPokemon = Pokemon("Pikachu", PokemonType::Electric, 100);
-                break;
-            }
-            cout << "Player " << name << " chose " << chosenPokemon.name << endl;
-            Utility::waitForEnter();
-        }
-      /*  void choosePokemon(int choice) 
-        {
-            choosePokemon(static_cast <PokemonChoice> (choice));
-        }*/
-};
 class ProfessorOak
 {
     //PROPERTIES
