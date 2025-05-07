@@ -47,6 +47,7 @@ class Pokemon
             cout << "Attack with a powerful move!" << endl;
         }
 };
+#include "Player.h"
 class ProfessorOak
 {
     //PROPERTIES

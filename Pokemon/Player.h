@@ -15,4 +15,4 @@ class Player
         Player() {} //DEFAULT CONTRUCTOR
         Player(string p_name, Pokemon p_chosenPokemon) {}
         void choosePokemon(int choice) {}
-}
+};
