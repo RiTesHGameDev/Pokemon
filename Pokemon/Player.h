@@ -1,7 +1,5 @@
 #pragma once
-#include "PokemonType.h"
-#include "PokemonChoice.h"
-#include "Utility.h"
+
 #include <string>
 using namespace std;
 
