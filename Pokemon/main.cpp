@@ -4,10 +4,9 @@
 #include <iostream>
 #include <string>
 #include <limits>
-using namespace std;
-class Pokemon;
 #include "Player.hpp"
 #include "ProfessorOak.hpp"
+using namespace std;
 void gameLoop(Player & player) 
 {
     bool keepPlaying = true;
@@ -86,10 +85,6 @@ int main()
     professor.explainMainQuest(player);
 
     gameLoop(player);
-
-    // Conclude the first chapter
-    /*cout << "Professor Oak: " << player.chosenPokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
-    cout << "Professor Oak: Your journey begins now! Get ready to explore the vast world of Pokemon!\n";*/
 
     system("pause");
     return 0;
