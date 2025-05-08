@@ -1,12 +1,11 @@
-
-#include "PokemonType.hpp"
 #include "PokemonChoice.hpp"
+#include "PokemonType.hpp"
 #include "Utilities.hpp"
 #include <iostream>
 #include <string>
 #include <limits>
 using namespace std;
-#include "Pokemon.hpp"
+class Pokemon;
 #include "Player.hpp"
 #include "ProfessorOak.hpp"
 void gameLoop(Player & player) 
@@ -79,7 +78,7 @@ int main()
     Pokemon charmander("Charmander", PokemonType::Fire, 100);
 
     ProfessorOak professor("PROFESSOR OAK");
-    Player player("Ash", charmander);
+    Player player("Ash", charmander) ;
 
     // Greet the player and offer Pokemon choices
     professor.greetPlayer(player);

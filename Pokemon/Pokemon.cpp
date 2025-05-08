@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Pokemon.hpp"
+#include "PokemonType.hpp"
 using namespace std;
 
 //CONTRUCTORS
