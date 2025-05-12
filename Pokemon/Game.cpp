@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "Grass.hpp"
 #include "WildEncounterManager.hpp"
+#include "PokemonType.hpp"
 using namespace std;
 
 Game::Game() 
@@ -33,24 +34,33 @@ void Game::gameLoop(Player & player)
         switch (choice)
         {
             case 1:
+            {
                 WildEncounterManager encounterManager;
                 Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
                 cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
                 break;
+            }
 
             case 2:
+            {
                 cout << player.name << " You head to the PokeCenter, but Nurse Joy is out on a coffee break.Guess your Pokemon will have to tough it out for now!" << endl;
                 break;
+            }
 
-            case 3:
+            case 3: 
+            {
                 cout << player.name << " You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
                 break;
+            }
 
             case 4:
+            {
                 cout << player.name << " You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'" << endl;
                 break;
+            }
 
-            case 5:
+            case 5: 
+            {
                 cout << player.name << " You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!" << endl;
                 cout << "Are you sure you want to Quit ?(Y/N)" << endl;
 
@@ -72,6 +82,7 @@ void Game::gameLoop(Player & player)
             default:
                 cout << "That's not a valid choice. Try again!" << endl;
                 break;
+            }
         }
         Utilities::waitForEnter();
         cout << "Goodbye, " << player.name << "! Thanks for playing" << endl;

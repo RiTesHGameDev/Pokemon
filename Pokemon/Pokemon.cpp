@@ -31,7 +31,22 @@ Pokemon::~Pokemon() //DESTRUCTOR
     //cout << name << " has been Destroyed." << endl;
 }
 //ATTACK METHOD
-void Pokemon::attack()
+void Pokemon::attack(Pokemon &target)
 { 
-    cout << "Attack with a powerful move!" << endl;
+    int damage = 10;
+    cout << name << " Attacks " << target.name << " for " << damage << " damage !" << endl;
+    target.takeDamage(damage);
+}
+void Pokemon::takeDamage(int damage) 
+{
+    health -= damage;
+
+    if (health < 0) 
+    {
+        health = 0;
+    }
+}
+bool Pokemon::isFainted() const
+{
+    return (health <= 0);
 }

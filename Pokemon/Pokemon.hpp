@@ -8,8 +8,9 @@ class Pokemon
     //PROPERTIES
     public:
         string name;
-        PokemonType type{};
-        int health{};
+        PokemonType type;
+        int health;
+        int maxHealth{};
 
         //DEFAULT CONTRUCTOR
         Pokemon();
@@ -23,5 +24,9 @@ class Pokemon
         //DESTRUCTOR
         ~Pokemon();
    
-        void attack();
+        void attack(Pokemon &target);
+
+        void takeDamage(int damage);
+
+        bool isFainted() const;
 };
