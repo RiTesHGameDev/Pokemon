@@ -10,7 +10,8 @@ using namespace std;
 
 Game::Game() 
 {
-    forestGrass = { "Forest",{{"Zubat",PokemonType::Poison,30},{"Caterpie",PokemonType::Bug,35},{"Pidgey",PokemonType::Normal,40}},80 };
+    forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30,40},Pokemon{"Caterpie",PokemonType::Bug,35,40},Pokemon{"Pidgey",PokemonType::Normal,40}, 80} };
+    caveGrass = {"Cave",{{"Zubat", PokemonType::Poison, 30}, {"Geodude", PokemonType::Rock, 50}},80};
 }
 void Game::gameLoop(Player & player)
 {
@@ -35,7 +36,7 @@ void Game::gameLoop(Player & player)
         {
             case 1:
             {
-                WildEncounterManager encounterManager;
+                WildEncounterManager encounterManager ;
                 Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
                 cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
                 break;
@@ -43,7 +44,9 @@ void Game::gameLoop(Player & player)
 
             case 2:
             {
-                cout << player.name << " You head to the PokeCenter, but Nurse Joy is out on a coffee break.Guess your Pokemon will have to tough it out for now!" << endl;
+                cout << "You have arrived at Poke Centre !" << endl;
+                player.chosenPokemon.heal();
+                cout << player.chosenPokemon.name << "'s health is fully restored." << endl;
                 break;
             }
 
@@ -59,7 +62,7 @@ void Game::gameLoop(Player & player)
                 break;
             }
 
-            case 5: 
+            case 5:
             {
                 cout << player.name << " You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!" << endl;
                 cout << "Are you sure you want to Quit ?(Y/N)" << endl;
@@ -78,8 +81,9 @@ void Game::gameLoop(Player & player)
                 }
 
                 break;
-
+            }
             default:
+            {
                 cout << "That's not a valid choice. Try again!" << endl;
                 break;
             }

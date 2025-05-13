@@ -8,5 +8,6 @@ enum class PokemonType
     Grass,
     Poison,
     Bug,
+    Rock,
     Normal,//default
 };

@@ -3,7 +3,9 @@
 #include <vector>
 using namespace std;
 
-class WildEncounterManager {
-public:
-	WildPokemon getRandomPokemonFromGrass(const Grass & grass);
-};
+class WildEncounterManager 
+{
+	public:
+		WildEncounterManager();
+		Pokemon getRandomPokemonFromGrass(const Grass& grass);
+};	

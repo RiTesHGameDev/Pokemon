@@ -6,6 +6,7 @@ using namespace std;
 
 struct Grass
 {
+public:
 	string environmentType;
 	vector<Pokemon>wildPokemonList;
 	int encounterRate;
