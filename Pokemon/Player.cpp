@@ -28,6 +28,9 @@ void Player::choosePokemon(int choice) {
         case PokemonChoice::Squirtle:
             chosenPokemon = Pokemon("Squirtle", PokemonType::Water, 100);
             break;
+        case PokemonChoice::Charizard:
+            chosenPokemon = Pokemon("Charizard", PokemonType::Fire, 100);
+            break;
         default:
             chosenPokemon = Pokemon("Pikachu", PokemonType::Electric, 100);
             break;

@@ -38,7 +38,7 @@ void ProfessorOak::offerPokemonChoices(Player& player)
     cout << name << ": I have three Pokemon here with me.They are all quite feisty! \n" << endl;
     Utilities::waitForEnter();
     cout << name << ": Choose wisely..." << endl;
-    cout << "1. Bulbasaur - The grass type.Calm and collected! \n2. Charmander - The fire type.A real hothead! \n3. Squirtle - The water type.Cool and cucumber!" << endl;
+    cout << "1. Bulbasaur - The grass type.Calm and collected! \n2. Charmander - The fire type.A real hothead! \n3. Squirtle - The water type.Cool and cucumber! \n4. Charizard - The Fire type.A dangerious beast!" << endl;
 
     int choice;
     cout << "PROFESSOR OAK : So,which Pokemon would you like to choose ? Enter the number :";

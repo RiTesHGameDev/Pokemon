@@ -18,6 +18,8 @@ Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health)//PARAMETERIZED
     name = p_name;
     type = p_type;
     health = p_health;
+    maxHealth = p_health;
+    attactPower = 10;
 }
 Pokemon::Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower)//PARAMETERIZED CONSTRUCTOR
 {

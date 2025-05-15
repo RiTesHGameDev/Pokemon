@@ -8,10 +8,11 @@
 #include "PokemonType.hpp"
 using namespace std;
 
-Game::Game() 
+Game::Game()
 {
-    forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30,40},Pokemon{"Caterpie",PokemonType::Bug,35,40},Pokemon{"Pidgey",PokemonType::Normal,40}, 80} };
-    caveGrass = {"Cave",{{"Zubat", PokemonType::Poison, 30}, {"Geodude", PokemonType::Rock, 50}},80};
+    forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30},Pokemon{"Caterpie",PokemonType::Bug,35},Pokemon{"Pidgey",PokemonType::Normal,35}}, 80 };
+
+    caveGrass = Grass{ "Cave",{Pokemon{"Zubat", PokemonType::Poison, 30}, Pokemon{"Geodude", PokemonType::Rock, 50}},80 };
 }
 void Game::gameLoop(Player & player)
 {
