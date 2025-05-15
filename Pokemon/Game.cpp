@@ -6,6 +6,7 @@
 #include "Grass.hpp"
 #include "WildEncounterManager.hpp"
 #include "PokemonType.hpp"
+#include "BattleManager.hpp"
 using namespace std;
 
 Game::Game()
@@ -18,6 +19,7 @@ void Game::gameLoop(Player & player)
 {
     bool keepPlaying = true;
     int choice;
+    BattleManager battleManager;
 
     while (keepPlaying)
     {
@@ -38,8 +40,9 @@ void Game::gameLoop(Player & player)
             case 1:
             {
                 WildEncounterManager encounterManager ;
-                Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-                cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
+                Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+                //cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
+                battleManager.startBattle(player , wildPokemon);
                 break;
             }
 
@@ -65,7 +68,6 @@ void Game::gameLoop(Player & player)
 
             case 5:
             {
-                cout << player.name << " You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!" << endl;
                 cout << "Are you sure you want to Quit ?(Y/N)" << endl;
 
                 char quitChoice;

@@ -1,25 +1,37 @@
 #include <iostream>
 #include "Player.hpp"
-#include "WildEncounterManager.hpp"
+#include "BattleManager.hpp"
+#include "Utilities.hpp"
 using namespace std;
 
-void battle(Pokemon& playerPokemon, Pokemon& WildPokemon) {
-	cout << "A " << WildPokemon.name << " appeared !" << endl;
+void BattleManager::startBattle(Player & player,Pokemon & wildPokemon)
+{
+	cout << "A wild " << wildPokemon.name << " appeared!\n";
+	battle(player.chosenPokemon, wildPokemon);
+}
+void BattleManager::battle(Pokemon& playerPokemon, Pokemon& wildPokemon)
+{
+	while (!playerPokemon.isFainted() && !wildPokemon.isFainted())
+	{
+		playerPokemon.attack(wildPokemon);
+	}
+	if (!wildPokemon.isFainted())
+	{
+		wildPokemon.attack(playerPokemon);
+	}
 
-	while (!playerPokemon.isFainted() && !WildPokemon.isFainted())
+	Utilities::waitForEnter();
+}
+void BattleManager::handleBattleOutCome(Player& player, bool playerWon) 
+{
+	if (playerWon)
 	{
-		playerPokemon.attack(WildPokemon);
-	}
-	if (!WildPokemon.isFainted()) 
-	{
-		WildPokemon.attack(playerPokemon);
-	}
-	if (playerPokemon.isFainted())
-	{
-		cout << playerPokemon.name << " hass fainted ! You lose the battle ." << endl;
+		cout << player.chosenPokemon.name << " is victorious! Keep an eye on your Pokémon's health." << endl;
 	}
 	else
 	{
-		cout << "You have defeated the " << WildPokemon.name << endl;
+		cout << "Oh no! " << player.chosenPokemon.name << " fainted! You need to visit the PokeCenter." << endl;
+		Utilities::waitForEnter();
+		std::cout << "Game Over.\n";
 	}
 }
