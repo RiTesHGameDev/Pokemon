@@ -1,16 +1,19 @@
 #pragma once
 #include <string>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-using namespace std;
+using namespace N_Pokemon;
 
-class Player
+namespace N_Player 
 {
-    //PROP0PERTIES OR ATTRIBUTES
-    public:
+    class Player
+    {
+        //PROP0PERTIES OR ATTRIBUTES
+        public:
         string name;
         Pokemon chosenPokemon;
 
         Player(); //DEFAULT CONTRUCTOR
         Player(string p_name, Pokemon p_chosenPokemon);
         void choosePokemon(int choice);
-};
+    };
+}

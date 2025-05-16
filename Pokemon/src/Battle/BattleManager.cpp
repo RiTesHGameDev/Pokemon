@@ -1,59 +1,63 @@
 #include <iostream>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utility/Utilities.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+using namespace N_Player;
+using namespace N_Utilities;
 using namespace std;
-
-void BattleManager::startBattle(Player & player,Pokemon & wildPokemon)
+namespace N_Battle 
 {
-	battleState.playerPokemon = &player.chosenPokemon;
-	battleState.wildPokemon = &wildPokemon;
-	battleState.playerTurn = true;
-	battleState.battleOnGoing = true;
-
-	cout << "A wild " << wildPokemon.name << " appeared!\n";
-	battle();
-	
-}
-void BattleManager::battle()
-{
-	while (battleState.battleOnGoing)
+	void BattleManager::startBattle(Player& player, Pokemon& wildPokemon)
 	{
-		if (battleState.playerTurn)
+		battleState.playerPokemon = &player.chosenPokemon;
+		battleState.wildPokemon = &wildPokemon;
+		battleState.playerTurn = true;
+		battleState.battleOnGoing = true;
+
+		cout << "A wild " << wildPokemon.name << " appeared!\n";
+		battle();
+
+	}
+	void BattleManager::battle()
+	{
+		while (battleState.battleOnGoing)
 		{
-			battleState.playerPokemon->attack(*battleState.wildPokemon);
-			updateBattleState();
+			if (battleState.playerTurn)
+			{
+				battleState.playerPokemon->attack(*battleState.wildPokemon);
+				updateBattleState();
+			}
+			else
+			{
+				battleState.wildPokemon->attack(*battleState.playerPokemon);
+				updateBattleState();
+			}
 		}
-		else
+
+		Utilities::waitForEnter();
+	}
+	void BattleManager::handleBattleOutCome()
+	{
+		if (battleState.playerPokemon->isFainted())
 		{
-			battleState.wildPokemon->attack(*battleState.playerPokemon);
-			updateBattleState();
+			cout << "Oh no! " << battleState.playerPokemon->name << " fainted! You need to visit the PokeCenter." << endl;
+			std::cout << "Game Over.\n";
 		}
-	}
-	
-	Utilities::waitForEnter();
-}
-void BattleManager::handleBattleOutCome() 
-{
-	if (battleState.playerPokemon->isFainted())
-	{
-		cout << "Oh no! " << battleState.playerPokemon->name << " fainted! You need to visit the PokeCenter." << endl;
-		std::cout << "Game Over.\n";
-	}
-	if(battleState.wildPokemon->isFainted())
-	{
-		cout << "You defeated the wild " << battleState.wildPokemon->name << endl;
+		if (battleState.wildPokemon->isFainted())
+		{
+			cout << "You defeated the wild " << battleState.wildPokemon->name << endl;
+
+		}
+		Utilities::waitForEnter();
 
 	}
-	Utilities::waitForEnter();
-	
-}
-void BattleManager::updateBattleState()
-{
-	if (battleState.playerPokemon->isFainted()) {
-		battleState.battleOnGoing = false;
-	}
-	else if (battleState.wildPokemon->isFainted()) {
-		battleState.battleOnGoing = false;
+	void BattleManager::updateBattleState()
+	{
+		if (battleState.playerPokemon->isFainted()) {
+			battleState.battleOnGoing = false;
+		}
+		else if (battleState.wildPokemon->isFainted()) {
+			battleState.battleOnGoing = false;
+		}
 	}
 }

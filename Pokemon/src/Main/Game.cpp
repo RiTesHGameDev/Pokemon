@@ -1,48 +1,53 @@
 #include <iostream>
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utility/Utilities.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Main/Game.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Grass.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/WildEncounterManager.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
-using namespace std;
+using namespace N_Utilities;
+using namespace N_Player;
+using namespace N_Pokemon;
+using namespace N_Battle;
 
-Game::Game()
+namespace N_Main 
 {
-    forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30},Pokemon{"Caterpie",PokemonType::Bug,35},Pokemon{"Pidgey",PokemonType::Normal,35}}, 80 };
-
-    caveGrass = Grass{ "Cave",{Pokemon{"Zubat", PokemonType::Poison, 30}, Pokemon{"Geodude", PokemonType::Rock, 50}},80 };
-}
-void Game::gameLoop(Player & player)
-{
-    bool keepPlaying = true;
-    int choice;
-    BattleManager battleManager;
-
-    while (keepPlaying)
+    Game::Game()
     {
-        Utilities::clearConsole();
-        cout << "What would you like to do next" << player.name << endl;
-        cout << "1.Battle wild pokemon" << endl;
-        cout << "2.Visit PokeCenter" << endl;
-        cout << "3.Challenge Gyms" << endl;
-        cout << "4.Enter Pokemon League" << endl;
-        cout << "5.Quit" << endl;
+        forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30},Pokemon{"Caterpie",PokemonType::Bug,35},Pokemon{"Pidgey",PokemonType::Normal,35}}, 80 };
 
-        cin >> choice;
+        caveGrass = Grass{ "Cave",{Pokemon{"Zubat", PokemonType::Poison, 30}, Pokemon{"Geodude", PokemonType::Rock, 50}},80 };
+    }
+    void Game::gameLoop(Player& player)
+    {
+        bool keepPlaying = true;
+        int choice;
+        BattleManager battleManager;
 
-        Utilities::clearInputBuffer();
-
-        switch (choice)
+        while (keepPlaying)
         {
+            Utilities::clearConsole();
+            cout << "What would you like to do next" << player.name << endl;
+            cout << "1.Battle wild pokemon" << endl;
+            cout << "2.Visit PokeCenter" << endl;
+            cout << "3.Challenge Gyms" << endl;
+            cout << "4.Enter Pokemon League" << endl;
+            cout << "5.Quit" << endl;
+
+            cin >> choice;
+
+            Utilities::clearInputBuffer();
+
+            switch (choice)
+            {
             case 1:
             {
-                WildEncounterManager encounterManager ;
+                WildEncounterManager encounterManager;
                 Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
                 //cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
-                battleManager.startBattle(player , wildPokemon);
+                battleManager.startBattle(player, wildPokemon);
                 break;
             }
 
@@ -54,7 +59,7 @@ void Game::gameLoop(Player & player)
                 break;
             }
 
-            case 3: 
+            case 3:
             {
                 cout << player.name << " You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
                 break;
@@ -90,9 +95,10 @@ void Game::gameLoop(Player & player)
                 cout << "That's not a valid choice. Try again!" << endl;
                 break;
             }
+            }
+            Utilities::waitForEnter();
+            cout << "Goodbye, " << player.name << "! Thanks for playing" << endl;
         }
-        Utilities::waitForEnter();
-        cout << "Goodbye, " << player.name << "! Thanks for playing" << endl;
-    }
 
+    }
 }

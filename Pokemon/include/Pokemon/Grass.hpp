@@ -2,12 +2,14 @@
 #include <string>
 #include <vector>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-using namespace std;
 
-struct Grass
+namespace N_Pokemon
 {
-public:
-	string environmentType;
-	vector<Pokemon>wildPokemonList;
-	int encounterRate;
-};
+	struct Grass
+	{
+	public:
+		string environmentType;
+		vector<Pokemon>wildPokemonList;
+		int encounterRate;
+	};
+}

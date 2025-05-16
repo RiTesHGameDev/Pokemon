@@ -1,9 +1,13 @@
 #pragma once
-enum class PokemonChoice
+
+namespace N_Pokemon
 {
-    Bulbasaur = 1,
-    Charmander,
-    Squirtle,
-    Charizard,
-    Pikachu,//default
-};
+    enum class PokemonChoice
+    {
+        Bulbasaur = 1,
+        Charmander,
+        Squirtle,
+        Charizard,
+        Pikachu,//default
+    };
+}

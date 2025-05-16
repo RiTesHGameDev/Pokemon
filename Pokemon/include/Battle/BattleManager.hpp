@@ -1,20 +1,24 @@
 #pragma once
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleState.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-using namespace std;
 
-class BattleManager 
+using namespace N_Player;
+
+namespace N_Battle
 {
+	class BattleManager
+	{
 	public:
-	BattleManager() = default;
+		BattleManager() = default;
 
-	void startBattle(Player& player, Pokemon& wildPokemon);
-	void updateBattleState();
+		void startBattle(Player& player, Pokemon& wildPokemon);
+		void updateBattleState();
 
 	private:
-	BattaleState battleState;
+		BattaleState battleState;
 
-	void battle();
-	void handleBattleOutCome();
-	
-};
+		void battle();
+		void handleBattleOutCome();
+
+	};
+}

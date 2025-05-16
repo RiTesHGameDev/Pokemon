@@ -1,11 +1,15 @@
 #pragma once
 #include <string>
-using namespace std;
-enum class PokemonType;
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
+//enum class PokemonType;
 
-class Pokemon 
+using namespace std;
+
+namespace N_Pokemon
 {
-    //PROPERTIES
+    class Pokemon
+    {
+        //PROPERTIES
     public:
         string name;
         PokemonType type;
@@ -16,24 +20,25 @@ class Pokemon
 
         //DEFAULT CONTRUCTOR
         Pokemon();
-    
+
         //PARAMETERIZED CONSTRUCTOR
-        Pokemon(string p_name, PokemonType p_type,int p_health);
+        Pokemon(string p_name, PokemonType p_type, int p_health);
 
         //Parameterized Contructor for wild pokemons
         Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower);
-    
+
         //DEEP COPY CONTRUCTOR
         Pokemon(const Pokemon& other);
-   
+
         //DESTRUCTOR
         ~Pokemon();
-          
-        void attack(Pokemon &target);
+
+        void attack(Pokemon& target);
 
         void takeDamage(int damage);
 
         bool isFainted() const;
 
         void heal();
-};
+    };
+}
