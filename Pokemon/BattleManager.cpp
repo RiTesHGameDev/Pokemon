@@ -6,32 +6,55 @@ using namespace std;
 
 void BattleManager::startBattle(Player & player,Pokemon & wildPokemon)
 {
-	cout << "A wild " << wildPokemon.name << " appeared!\n";
-	battle(player.chosenPokemon, wildPokemon);
-}
-void BattleManager::battle(Pokemon& playerPokemon, Pokemon& wildPokemon)
-{
-	while (!playerPokemon.isFainted() && !wildPokemon.isFainted())
-	{
-		playerPokemon.attack(wildPokemon);
-	}
-	if (!wildPokemon.isFainted())
-	{
-		wildPokemon.attack(playerPokemon);
-	}
+	battleState.playerPokemon = &player.chosenPokemon;
+	battleState.wildPokemon = &wildPokemon;
+	battleState.playerTurn = true;
+	battleState.battleOnGoing = true;
 
+	cout << "A wild " << wildPokemon.name << " appeared!\n";
+	battle();
+	
+}
+void BattleManager::battle()
+{
+	while (battleState.battleOnGoing)
+	{
+		if (battleState.playerTurn=false)
+		{
+			battleState.wildPokemon->attack(*battleState.playerPokemon);
+			updateBattleState();
+			
+		}
+		else
+		{
+			battleState.playerPokemon->attack(*battleState.wildPokemon);
+			updateBattleState();
+		}
+	}
+	
 	Utilities::waitForEnter();
 }
-void BattleManager::handleBattleOutCome(Player& player, bool playerWon) 
+void BattleManager::handleBattleOutCome() 
 {
-	if (playerWon)
+	if (battleState.playerPokemon->isFainted())
 	{
-		cout << player.chosenPokemon.name << " is victorious! Keep an eye on your Pokémon's health." << endl;
-	}
-	else
-	{
-		cout << "Oh no! " << player.chosenPokemon.name << " fainted! You need to visit the PokeCenter." << endl;
-		Utilities::waitForEnter();
+		cout << "Oh no! " << battleState.playerPokemon->name << " fainted! You need to visit the PokeCenter." << endl;
 		std::cout << "Game Over.\n";
+	}
+	if(battleState.wildPokemon->isFainted())
+	{
+		cout << "You defeated the wild " << battleState.wildPokemon->name << endl;
+
+	}
+	Utilities::waitForEnter();
+	
+}
+void BattleManager::updateBattleState()
+{
+	if (battleState.playerPokemon->isFainted()) {
+		battleState.battleOnGoing = false;
+	}
+	else if (battleState.wildPokemon->isFainted()) {
+		battleState.battleOnGoing = false;
 	}
 }

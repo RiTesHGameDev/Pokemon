@@ -1,4 +1,6 @@
 #pragma once
+#include "BattleState.hpp"
+#include "Player.hpp"
 using namespace std;
 
 class BattleManager 
@@ -7,7 +9,12 @@ class BattleManager
 	BattleManager() = default;
 
 	void startBattle(Player& player, Pokemon& wildPokemon);
-	void battle(Pokemon& playerPokemon, Pokemon& wildPokemon);
-	void handleBattleOutCome(Player& player, bool playerWon);
+	void updateBattleState();
 
+	private:
+	BattaleState battleState;
+
+	void battle();
+	void handleBattleOutCome();
+	
 };
