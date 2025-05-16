@@ -1,12 +1,12 @@
-#include "PokemonChoice.hpp"
-#include "PokemonType.hpp"
-#include "Utilities.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonChoice.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utility/Utilities.hpp"
 #include <iostream>
 #include <string>
 #include <limits>
-#include "Player.hpp"
-#include "ProfessorOak.hpp"
-#include "Game.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/ProfessorOak.hpp"
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Main/Game.hpp"
 using namespace std;
 
 int main()
