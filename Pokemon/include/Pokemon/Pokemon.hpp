@@ -15,7 +15,7 @@ namespace N_Pokemon
         PokemonType type;
         int health;
         int maxHealth;
-        int attactPower;
+        int attackPower;
 
 
         //DEFAULT CONTRUCTOR

@@ -14,7 +14,7 @@ namespace N_Pokemon
         type = PokemonType::Normal;
         health = 50;
         maxHealth = 100;
-        attactPower = 10;
+        attackPower = 10;
     }
     Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health)//PARAMETERIZED CONSTRUCTOR
     {
@@ -22,7 +22,7 @@ namespace N_Pokemon
         type = p_type;
         health = p_health;
         maxHealth = p_health;
-        attactPower = 10;
+        attackPower = 10;
     }
     Pokemon::Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower)//PARAMETERIZED CONSTRUCTOR
     {
@@ -30,7 +30,7 @@ namespace N_Pokemon
         type = p_type;
         health = p_maxHealth;
         maxHealth = p_maxHealth;
-        attactPower = p_attackPower;
+        attackPower = p_attackPower;
     }
     Pokemon::Pokemon(const Pokemon& other) //DEEP COPY CONTRUCTOR
     {
@@ -38,7 +38,7 @@ namespace N_Pokemon
         type = other.type;
         health = other.health;
         maxHealth = other.maxHealth;
-        attactPower = other.attactPower;
+        attackPower = other.attackPower;
     }
 
 
@@ -50,7 +50,7 @@ namespace N_Pokemon
     //ATTACK METHOD
     void Pokemon::attack(Pokemon& target)
     {
-        int damage = attactPower;
+        int damage = attackPower;
         cout << name << " Attacks " << target.name << " for " << damage << " damage !" << endl;
         target.takeDamage(damage);
     }
