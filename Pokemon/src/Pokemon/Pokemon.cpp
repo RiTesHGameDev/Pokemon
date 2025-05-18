@@ -7,6 +7,20 @@ using namespace std;
 
 namespace N_Pokemon
 {
+    void Pokemon::setName(string n) { name = n; }
+    string Pokemon::getName() { return name; }
+
+    PokemonType Pokemon::setType(PokemonType t) { type = t; }
+    PokemonType Pokemon::getType() { return type; }
+
+    void Pokemon::setHealth(int h) { health = h; }
+    int Pokemon::getHealth() { return health; }
+
+    void Pokemon::setMaxHealth(int mh) { maxHealth= mh; }
+    int Pokemon::getMaxHealth() { return maxHealth; }
+
+    void Pokemon::setAttackPower(int ap) { attackPower = ap; }
+    int Pokemon::getAttackPower() { return attackPower; }
     //CONTRUCTORS
     Pokemon::Pokemon() //DEFAULT CONTRUCTOR
     {
