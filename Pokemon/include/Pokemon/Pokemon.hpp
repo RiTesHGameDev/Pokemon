@@ -10,26 +10,36 @@ namespace N_Pokemon
     class Pokemon
     {
         //PROPERTIES
-    public:
+    protected:
         string name;
         PokemonType type;
         int health;
         int maxHealth;
-        int attactPower;
+        int attackPower;
 
+    public:
+        void setName(string n);
+        string getName();
 
+        PokemonType setType(PokemonType t);
+        PokemonType getType();
+
+        void setHealth(int h);
+        int getHealth();
+
+        void setMaxHealth(int mh);
+        int getMaxHealth();
+
+        void setAttackPower(int ap);
+        int getAttackPower();
         //DEFAULT CONTRUCTOR
         Pokemon();
-
         //PARAMETERIZED CONSTRUCTOR
         Pokemon(string p_name, PokemonType p_type, int p_health);
-
         //Parameterized Contructor for wild pokemons
         Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower);
-
         //DEEP COPY CONTRUCTOR
         Pokemon(const Pokemon& other);
-
         //DESTRUCTOR
         ~Pokemon();
 
