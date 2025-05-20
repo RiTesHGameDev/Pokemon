@@ -55,7 +55,7 @@ namespace N_Main
             {
                 cout << "You have arrived at Poke Centre !" << endl;
                 player.chosenPokemon.heal();
-                cout << player.chosenPokemon.name << "'s health is fully restored." << endl;
+                cout << player.chosenPokemon.getName() << "'s health is fully restored." << endl;
                 break;
             }
 
