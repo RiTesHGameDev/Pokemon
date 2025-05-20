@@ -1,7 +1,6 @@
 #include <iostream>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Pikachu.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemons;
 using namespace N_Pokemon;
 
 namespace N_Pokemon
@@ -12,8 +11,8 @@ namespace N_Pokemon
 
 		void Pikachu::thunderShock(Pokemon& target)
 		{
-			cout << name << " uses Thunder Shock on" << target.name << endl;
-			target.takeDamage(15);
+			cout << name << " uses Thunder Shock on" << target.getName() << endl;
+			target.takeDamage(20);
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace N_Pokemon
     void Pokemon::setName(string n) { name = n; }
     string Pokemon::getName() { return name; }
 
-    PokemonType Pokemon::setType(PokemonType t) { type = t; }
+    PokemonType Pokemon::setType(PokemonType t) { type = t; return type; }
     PokemonType Pokemon::getType() { return type; }
 
     void Pokemon::setHealth(int h) { health = h; }

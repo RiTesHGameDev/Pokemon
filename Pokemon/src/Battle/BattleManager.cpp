@@ -14,7 +14,7 @@ namespace N_Battle
 		battleState.playerTurn = true;
 		battleState.battleOnGoing = true;
 
-		cout << "A wild " << wildPokemon.name << " appeared!\n";
+		cout << "A wild " << wildPokemon.getName() << " appeared!\n";
 		battle();
 
 	}
@@ -40,12 +40,12 @@ namespace N_Battle
 	{
 		if (battleState.playerPokemon->isFainted())
 		{
-			cout << "Oh no! " << battleState.playerPokemon->name << " fainted! You need to visit the PokeCenter." << endl;
+			cout << "Oh no! " << battleState.playerPokemon->getName() << " fainted! You need to visit the PokeCenter." << endl;
 			std::cout << "Game Over.\n";
 		}
 		if (battleState.wildPokemon->isFainted())
 		{
-			cout << "You defeated the wild " << battleState.wildPokemon->name << endl;
+			cout << "You defeated the wild " << battleState.wildPokemon->getName() << endl;
 
 		}
 		Utilities::waitForEnter();
