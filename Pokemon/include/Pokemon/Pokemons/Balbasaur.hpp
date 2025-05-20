@@ -12,6 +12,7 @@ namespace N_Pokemon
 			void vineWhip(Pokemon& target);
 		public:
 			Balbasaur();
+			void attack(Pokemon* target)override;
 		};
 	}
 }

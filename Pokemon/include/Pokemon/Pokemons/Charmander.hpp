@@ -12,6 +12,7 @@ namespace N_Pokemon
 			void flameBrust(Pokemon& target);
 		public:
 			Charmander();
+			void attack(Pokemon* target)override;
 		};
 	}
 }

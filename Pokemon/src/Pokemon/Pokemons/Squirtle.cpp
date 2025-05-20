@@ -14,5 +14,8 @@ namespace N_Pokemon
 			cout << name << " uses Water Splash on" << target.getName() << endl;
 			target.takeDamage(20);
 		}
+		void Squirtle::attack(Pokemon* target) {
+			WaterSplash(*target);
+		}
 	}
 }

@@ -54,19 +54,9 @@ namespace N_Pokemon
         maxHealth = other.maxHealth;
         attackPower = other.attackPower;
     }
-
-
     Pokemon::~Pokemon() //DESTRUCTOR
     {
         //cout << name << " has been Destroyed." << endl;
-    }
-
-    //ATTACK METHOD
-    void Pokemon::attack(Pokemon& target)
-    {
-        int damage = attackPower;
-        cout << name << " Attacks " << target.name << " for " << damage << " damage !" << endl;
-        target.takeDamage(damage);
     }
     void Pokemon::takeDamage(int damage)
     {

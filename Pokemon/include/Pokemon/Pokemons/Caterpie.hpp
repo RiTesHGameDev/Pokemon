@@ -12,6 +12,7 @@ namespace N_Pokemon
 			void bugBite(Pokemon& target);
 		public:
 			Caterpie();
+			void attack(Pokemon * target)override;
 		};
 	}
 }
