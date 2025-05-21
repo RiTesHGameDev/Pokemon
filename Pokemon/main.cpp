@@ -29,7 +29,7 @@ int main()
 
     // Start the main game loop
     Game* game = new Game();
-    game->gameLoop(*player);
+    game->gameLoop(player);
 
     system("pause");
 

@@ -10,10 +10,10 @@ namespace N_Player
         //PROP0PERTIES OR ATTRIBUTES
         public:
         string name;
-        Pokemon chosenPokemon;
+        Pokemon * chosenPokemon;
 
         Player(); //DEFAULT CONTRUCTOR
-        Player(string p_name, Pokemon p_chosenPokemon);
+        Player(string p_name);
         void choosePokemon(int choice);
     };
 }

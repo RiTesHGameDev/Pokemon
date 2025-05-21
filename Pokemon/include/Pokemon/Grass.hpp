@@ -9,7 +9,7 @@ namespace N_Pokemon
 	{
 	public:
 		string environmentType;
-		vector<Pokemon>wildPokemonList;
+		vector<Pokemon*>wildPokemonList;
 		int encounterRate;
 	};
 }
