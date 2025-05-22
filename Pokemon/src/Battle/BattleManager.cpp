@@ -7,27 +7,28 @@ using namespace N_Utilities;
 using namespace std;
 namespace N_Battle 
 {
-	void BattleManager::startBattle(Player& player, Pokemon& wildPokemon)
+	void BattleManager::startBattle(Player* player, Pokemon* wildPokemon)
 	{
-		battleState.playerPokemon = player.chosenPokemon;
-		battleState.wildPokemon = &wildPokemon;
+		battleState.playerPokemon = player->chosenPokemon;
+		battleState.wildPokemon = wildPokemon;
 		battleState.playerTurn = true;
 		battleState.battleOnGoing = true;
 
-		cout << "A wild " << wildPokemon.getName() << " appeared!\n";
+		cout << "A wild " << wildPokemon->getName() << " appeared!\n";
 		battle();
+		handleBattleOutCome();
 
 	}
 	void BattleManager::battle()
 	{
-		while (battleState.battleOnGoing)
+		while (battleState.battleOnGoing == true)
 		{
-			if (battleState.playerTurn)
+			do
 			{
 				battleState.playerPokemon->attack(battleState.wildPokemon);
 				updateBattleState();
-			}
-			else
+			} 
+			while (battleState.playerTurn == false);
 			{
 				battleState.wildPokemon->attack(battleState.playerPokemon);
 				updateBattleState();

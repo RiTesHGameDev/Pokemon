@@ -1,7 +1,8 @@
 #include <iostream>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Balbasaur.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+using namespace N_Utilities;
 
 namespace N_Pokemon
 {
@@ -9,13 +10,30 @@ namespace N_Pokemon
 	{
 		Balbasaur::Balbasaur() :Pokemon("Balbasaur", PokemonType::Grass, 100, 35) {}
 
-		void Balbasaur::vineWhip(Pokemon& target)
+		void Balbasaur::vineWhip(Pokemon* target)
 		{
-			cout << name << " uses Vine Whip on" << target.getName() << endl;
-			target.takeDamage(20);
+			cout << name << " uses Vine Whip on" << target->getName() << endl;
+
+			N_Utilities::Utilities::waitForEnter();
+
+			cout << "...\n";
+
+			N_Utilities::Utilities::waitForEnter();
+
+			target->takeDamage(attackPower);
+
+			if (target->isFainted())
+			{
+				cout << target->getName() << " fainted" << endl;
+			}
+			else
+			{
+				cout << target->getName() << " has" << target->getHealth() << "HP left" << endl;
+			}
 		}
-		void Balbasaur::attack(Pokemon* target) {
-			vineWhip(*target);
+		void Balbasaur::attack(Pokemon* target) 
+		{
+			vineWhip(target);
 		}
 	}
 }

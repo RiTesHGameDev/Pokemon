@@ -9,7 +9,6 @@
 #include <iostream>
 using namespace N_Pokemons;
 using namespace N_Utilities;
-using namespace N_Pokemon;
 using namespace N_Player;
 using namespace std;
 
@@ -17,8 +16,7 @@ namespace N_Player
 {
     Player::Player()
     {
-        name = "Trainer";
-        
+        name = "Trainer";  
     }
     Player::Player(string p_name) {
         name = p_name;

@@ -12,7 +12,7 @@ namespace N_Main
 	class Game
 	{
 		bool keepPlaying = true;
-		int choice;
+		//int choice;
 
 	private:
 		Grass forestGrass;

@@ -15,19 +15,13 @@ using namespace N_Utilities;
 using namespace N_Player;
 using namespace N_Pokemon;
 using namespace N_Battle;
+using namespace std;
 
 namespace N_Main 
 {
     Game::Game()
     {
-        forestGrass = Grass{
-            "Forest",
-            { 
-                new Zubat(),
-                new Caterpie(),
-                new Pidgey()
-            },
-            80 };
+        forestGrass = Grass{ "Forest",{new Zubat(),new Pidgey(),new Caterpie()}, 80 };
     }
     Game::~Game() {
         delete(wildPokemon);
@@ -63,7 +57,7 @@ namespace N_Main
             {
                 WildEncounterManager encounterManager;
                 Pokemon* wildPokemon = &encounterManager.getRandomPokemonFromGrass(forestGrass);
-                battleManager.startBattle(*player,*wildPokemon);
+                battleManager.startBattle(player,wildPokemon);
                 break;
             }
 

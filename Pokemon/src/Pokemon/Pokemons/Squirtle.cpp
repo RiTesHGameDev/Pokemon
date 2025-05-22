@@ -1,7 +1,8 @@
 #include <iostream>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Squirtle.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+using namespace N_Utilities;
 
 namespace N_Pokemon
 {
@@ -9,13 +10,30 @@ namespace N_Pokemon
 	{
 		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35) {}
 
-		void Squirtle::WaterSplash(Pokemon& target)
+		void Squirtle::WaterSplash(Pokemon* target)
 		{
-			cout << name << " uses Water Splash on" << target.getName() << endl;
-			target.takeDamage(20);
+			cout << name << " uses Water Splash on" << target->getName() << endl;
+
+			N_Utilities::Utilities::waitForEnter();
+
+			cout << "...\n";
+
+			N_Utilities::Utilities::waitForEnter();
+
+			target->takeDamage(attackPower);
+
+			if(target->isFainted())
+			{
+				cout << target->getName() << " fainted" << endl;
+			}
+			else
+			{
+				cout << target->getName() << " has" << target->getHealth() << "HP left" << endl;
+			}
 		}
-		void Squirtle::attack(Pokemon* target) {
-			WaterSplash(*target);
+		void Squirtle::attack(Pokemon* target) 
+		{
+			WaterSplash(target);
 		}
 	}
 }

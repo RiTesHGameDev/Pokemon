@@ -11,7 +11,7 @@ namespace N_Battle
 	public:
 		BattleManager() = default;
 
-		void startBattle(Player& player, Pokemon& wildPokemon);
+		void startBattle(Player* player, Pokemon* wildPokemon);
 		void updateBattleState();
 
 	private:

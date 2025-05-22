@@ -2,7 +2,7 @@
 #include <string>
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+
 using namespace std;
 
 namespace N_Pokemon

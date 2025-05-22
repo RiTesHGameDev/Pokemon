@@ -1,6 +1,5 @@
 #pragma once
 #include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-using namespace N_Pokemon;
 
 namespace N_Pokemon
 {
@@ -9,7 +8,7 @@ namespace N_Pokemon
 		class Zubat :public Pokemon
 		{
 		private:
-			void supersonic(Pokemon& target);
+			void supersonic(Pokemon* target);
 		public:
 			Zubat();
 			void attack(Pokemon* target)override;
