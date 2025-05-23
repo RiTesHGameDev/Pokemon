@@ -1,7 +1,6 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Zubat.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon

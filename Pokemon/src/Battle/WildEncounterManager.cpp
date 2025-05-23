@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdlib>
 #include <ctime>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/WildEncounterManager.hpp"
+#include "../../include/Battle/WildEncounterManager.hpp"
 using namespace std;
 
 namespace N_Battle 

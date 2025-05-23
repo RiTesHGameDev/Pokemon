@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-//enum class PokemonType;
-
+#include <vector>
+#include "../../include/Pokemon/PokemonType.hpp"
 using namespace std;
+
+//struct Move;
 
 namespace N_Pokemon
 {
     class Pokemon
     {
+        
         //PROPERTIES
     protected:
         string name;
@@ -16,8 +18,11 @@ namespace N_Pokemon
         int health;
         int maxHealth;
         int attackPower;
+        
 
     public:
+        //vector<Move>moves;
+
         void setName(string n);
         string getName();
 
@@ -33,10 +38,6 @@ namespace N_Pokemon
         void setAttackPower(int ap);
         int getAttackPower();
         //DEFAULT CONTRUCTOR
-        Pokemon();
-        //PARAMETERIZED CONSTRUCTOR
-        Pokemon(string p_name, PokemonType p_type, int p_health);
-        //Parameterized Contructor for wild pokemons
         Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower);
         //DEEP COPY CONTRUCTOR
         Pokemon(const Pokemon& other);
@@ -50,5 +51,13 @@ namespace N_Pokemon
         bool isFainted() const;
 
         void heal();
+
+        //void selectAndUseMove(Pokemon* target);
+
+        /*void printAvailableMoves();
+
+        int selectMove();
+
+        void useMove(Move selectedMove,Pokemon* target);*/
     };
 }

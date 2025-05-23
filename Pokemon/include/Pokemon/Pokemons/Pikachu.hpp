@@ -1,7 +1,5 @@
 #pragma once
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-using namespace N_Utilities;
+#include "../../../include/Pokemon/Pokemon.hpp"
 
 namespace N_Pokemon
 {

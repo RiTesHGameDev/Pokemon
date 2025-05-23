@@ -1,11 +1,11 @@
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonChoice.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Balbasaur.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Charmander.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Squirtle.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Pikachu.hpp"
+#include "../../../include/Character/Player/Player.hpp"
+#include "../../../include/Pokemon/PokemonChoice.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/Pokemons/Balbasaur.hpp"
+#include "../../../include/Pokemon/Pokemons/Charmander.hpp"
+#include "../../../include/Pokemon/Pokemons/Squirtle.hpp"
+#include "../../../include/Pokemon/Pokemons/Pikachu.hpp"
 #include <iostream>
 using namespace N_Pokemons;
 using namespace N_Utilities;
@@ -16,7 +16,7 @@ namespace N_Player
 {
     Player::Player()
     {
-        name = "Trainer";  
+        name = "Trainer";
     }
     Player::Player(string p_name) {
         name = p_name;

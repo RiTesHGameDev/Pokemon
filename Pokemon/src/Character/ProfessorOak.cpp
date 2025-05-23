@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/ProfessorOak.hpp"
+#include "../../include/Utilities/Utilities.hpp"
+#include "../../include/Character/Player/Player.hpp"
+#include "../../include/Character/ProfessorOak.hpp"
 using namespace N_Utilities;
 using namespace N_Player;
 using namespace N_Character;

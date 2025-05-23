@@ -1,6 +1,6 @@
 #pragma once
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleState.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
+#include "../../include/Battle/BattleState.hpp"
+#include "../../include/Character/Player/Player.hpp"
 
 using namespace N_Player;
 

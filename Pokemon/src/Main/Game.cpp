@@ -1,18 +1,15 @@
 #include <iostream>
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Main/Game.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Grass.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/WildEncounterManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Zubat.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Caterpie.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Pidgey.hpp"
+#include "../../include/Utilities/Utilities.hpp"
+#include "../../include/Main/Game.hpp"
+#include "../../include/Battle/WildEncounterManager.hpp"
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Pokemon/PokemonType.hpp"
+#include "../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../include/Pokemon/Pokemons/Pidgey.hpp"
 using namespace N_Pokemons;
 using namespace N_Utilities;
-using namespace N_Player;
 using namespace N_Pokemon;
 using namespace N_Battle;
 using namespace std;
@@ -57,6 +54,7 @@ namespace N_Main
             {
                 WildEncounterManager encounterManager;
                 Pokemon* wildPokemon = &encounterManager.getRandomPokemonFromGrass(forestGrass);
+                wildPokemon->heal();
                 battleManager.startBattle(player,wildPokemon);
                 break;
             }

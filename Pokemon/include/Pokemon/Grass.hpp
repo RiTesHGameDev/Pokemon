@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
+#include "../../include/Pokemon/Pokemon.hpp"
 
 namespace N_Pokemon
 {

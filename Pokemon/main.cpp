@@ -1,14 +1,12 @@
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonChoice.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/ProfessorOak.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Main/Game.hpp"
+#include "../Pokemon/include/Pokemon/PokemonChoice.hpp"
+#include "../Pokemon/include/Pokemon/PokemonType.hpp"
+#include "../Pokemon/include/Utilities/Utilities.hpp"
+#include "../Pokemon/include/Character/ProfessorOak.hpp"
+#include "../Pokemon/include/Main/Game.hpp"
 #include <iostream>
 #include <string>
 #include <limits>
 using namespace N_Pokemon;
-using namespace N_Player;
 using namespace N_Utilities;
 using namespace N_Character;
 using namespace N_Main;

@@ -1,8 +1,6 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-using namespace N_Player;
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Utilities/Utilities.hpp"
 using namespace N_Utilities;
 using namespace std;
 namespace N_Battle 
@@ -23,15 +21,17 @@ namespace N_Battle
 	{
 		while (battleState.battleOnGoing == true)
 		{
-			do
+			if (battleState.playerTurn == true)
 			{
 				battleState.playerPokemon->attack(battleState.wildPokemon);
 				updateBattleState();
+				battleState.playerTurn = false;
 			} 
-			while (battleState.playerTurn == false);
+			else
 			{
 				battleState.wildPokemon->attack(battleState.playerPokemon);
 				updateBattleState();
+				battleState.playerTurn = true;
 			}
 		}
 

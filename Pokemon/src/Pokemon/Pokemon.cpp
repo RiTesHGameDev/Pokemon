@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-
+#include <vector>
+#include "../../include/Pokemon/Pokemon.hpp"
+#include "../../include/Utilities/Utilities.hpp"
+using namespace N_Utilities;
 using namespace std;
 
 namespace N_Pokemon
@@ -22,22 +23,6 @@ namespace N_Pokemon
     void Pokemon::setAttackPower(int ap) { attackPower = ap; }
     int Pokemon::getAttackPower() { return attackPower; }
     //CONTRUCTORS
-    Pokemon::Pokemon() //DEFAULT CONTRUCTOR
-    {
-        name = "Unknown";
-        type = PokemonType::Normal;
-        health = 50;
-        maxHealth = 100;
-        attackPower = 10;
-    }
-    Pokemon::Pokemon(string p_name, PokemonType p_type, int p_health)//PARAMETERIZED CONSTRUCTOR
-    {
-        name = p_name;
-        type = p_type;
-        health = p_health;
-        maxHealth = p_health;
-        attackPower = 10;
-    }
     Pokemon::Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower)//PARAMETERIZED CONSTRUCTOR
     {
         name = p_name;
@@ -75,4 +60,53 @@ namespace N_Pokemon
     {
         health = maxHealth;
     }
+   /* void Pokemon::selectAndUseMove(Pokemon* target) 
+    {
+        printAvailableMoves();
+    }*/
+    /*void Pokemon::printAvailableMoves() 
+    {
+        cout << getName() << "'s available moves." << endl;
+        cout << "Vine Whip" << endl;
+        cout << "Flame Brust" << endl;
+        cout << "Water Splash" << endl;
+        cout << "Thunder Shock" << endl;
+        cout << "Super Sonic" << endl;
+        cout << "Bug Bite" << endl;
+        cout << "Wing Attack" << endl;
+
+        for (size_t i = 0; i <= moves.size();++i) 
+        {
+            cout << i + 1 << ":" << moves[i].name << "Power :" << moves[i].power << endl;
+        }
+    }
+    int Pokemon::selectMove() 
+    {
+        int choice;
+        cout << "Choose a move :" << endl;
+
+        cin >> choice;
+
+        while (choice < 1 || static_cast<int>(moves.size()))
+        {
+            cout << "Invalid Choice !" << endl;
+            cin >> choice;
+        }
+        return choice;
+    }
+    void Pokemon::useMove(Move selectedMove,Pokemon*target) 
+    {
+        cout << name << " used " << selectedMove.name << "!\n";
+        attack(selectedMove,target);
+
+        N_Utilities::Utilities::waitForEnter();
+
+        cout << "...\n";
+        N_Utilities::Utilities::waitForEnter();
+
+        if (target->isFainted())
+            cout << target->name << " fainted!\n";
+        else
+            cout << target->name << " has " << target->health << " HP left.\n";
+    }*/
 }

@@ -1,7 +1,6 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Charmander.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/Pokemons/Charmander.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon
@@ -14,11 +13,11 @@ namespace N_Pokemon
 		{
 			cout << name << " uses Flame Thrower on" << target->getName() << endl;
 
-			N_Utilities::Utilities::waitForEnter;
+			N_Utilities::Utilities::waitForEnter();
 
 			cout << "...\n";
 
-			N_Utilities::Utilities::waitForEnter;
+			N_Utilities::Utilities::waitForEnter();
 
 			target->takeDamage(attackPower);
 
