@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
+#include "../../include/Pokemon/Pokemon.hpp"
 
 namespace N_Pokemon
 {
@@ -9,7 +9,7 @@ namespace N_Pokemon
 	{
 	public:
 		string environmentType;
-		vector<Pokemon>wildPokemonList;
+		vector<Pokemon*>wildPokemonList;
 		int encounterRate;
 	};
 }

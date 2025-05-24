@@ -1,36 +1,37 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-using namespace N_Player;
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Utilities/Utilities.hpp"
 using namespace N_Utilities;
 using namespace std;
 namespace N_Battle 
 {
-	void BattleManager::startBattle(Player& player, Pokemon& wildPokemon)
+	void BattleManager::startBattle(Player* player, Pokemon* wildPokemon)
 	{
-		battleState.playerPokemon = &player.chosenPokemon;
-		battleState.wildPokemon = &wildPokemon;
+		battleState.playerPokemon = player->chosenPokemon;
+		battleState.wildPokemon = wildPokemon;
 		battleState.playerTurn = true;
 		battleState.battleOnGoing = true;
 
-		cout << "A wild " << wildPokemon.getName() << " appeared!\n";
+		cout << "A wild " << wildPokemon->getName() << " appeared!\n";
 		battle();
+		handleBattleOutCome();
 
 	}
 	void BattleManager::battle()
 	{
-		while (battleState.battleOnGoing)
+		while (battleState.battleOnGoing == true)
 		{
-			if (battleState.playerTurn)
+			if (battleState.playerTurn == true)
 			{
-				battleState.playerPokemon->attack(*battleState.wildPokemon);
+				battleState.playerPokemon->selectAndUseMove(battleState.wildPokemon);
 				updateBattleState();
-			}
+				battleState.playerTurn = false;
+			} 
 			else
 			{
-				battleState.wildPokemon->attack(*battleState.playerPokemon);
+				battleState.wildPokemon->selectAndUseMove(battleState.playerPokemon);
 				updateBattleState();
+				battleState.playerTurn = true;
 			}
 		}
 
@@ -59,5 +60,8 @@ namespace N_Battle
 		else if (battleState.wildPokemon->isFainted()) {
 			battleState.battleOnGoing = false;
 		}
+	}
+	void BattleManager::stopBattle() {
+		battleState.battleOnGoing = false;
 	}
 }

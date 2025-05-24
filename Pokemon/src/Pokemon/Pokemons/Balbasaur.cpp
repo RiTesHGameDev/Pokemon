@@ -1,18 +1,33 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Balbasaur.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+#include "../../../include/Pokemon/Pokemons/Balbasaur.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
+
+using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Balbasaur::Balbasaur() :Pokemon("Balbasaur", PokemonType::Grass, 100, 35) {}
+		Balbasaur::Balbasaur() :Pokemon("Balbasaur", PokemonType::Grass, 100, 35, (Move("Vine Whip", 35),Move("Tackle", 15))) {}
 
-		void Balbasaur::vineWhip(Pokemon& target)
+		void Balbasaur::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Vine Whip on" << target.getName() << endl;
-			target.takeDamage(20);
+			Pokemon::attack(selectedMove, target);
+
+			if (selectedMove.name == "Vine Whip")
+			{
+				int secondHitChance = rand() % 2;
+
+				if (secondHitChance == 1)
+
+					Pokemon::attack(selectedMove, target);
+
+					cout << name << " hit again with a second " << selectedMove.name << endl;
+			}
+			else
+				cout << target->getName() << " dodged the second hit" << endl;
 		}
 	}
 }

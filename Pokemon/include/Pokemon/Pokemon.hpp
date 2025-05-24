@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-//enum class PokemonType;
-
+#include <vector>
+#include "../../include/Pokemon/Pokemon.hpp"
+#include "../../include/Pokemon/Move.hpp"
 using namespace std;
 
 namespace N_Pokemon
 {
+    enum class PokemonType;
+    struct Move;
     class Pokemon
     {
+        
         //PROPERTIES
     protected:
         string name;
@@ -16,8 +19,11 @@ namespace N_Pokemon
         int health;
         int maxHealth;
         int attackPower;
+        
 
     public:
+        vector<Move>moves;
+
         void setName(string n);
         string getName();
 
@@ -34,21 +40,27 @@ namespace N_Pokemon
         int getAttackPower();
         //DEFAULT CONTRUCTOR
         Pokemon();
-        //PARAMETERIZED CONSTRUCTOR
-        Pokemon(string p_name, PokemonType p_type, int p_health);
-        //Parameterized Contructor for wild pokemons
-        Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower);
+        //Parameterize Contructor
+        Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower,Move p_selectedMove);
         //DEEP COPY CONTRUCTOR
         Pokemon(const Pokemon& other);
         //DESTRUCTOR
         ~Pokemon();
 
-        void attack(Pokemon& target);
+        virtual void attack(Move selectedMove,Pokemon*target) = 0;
 
         void takeDamage(int damage);
 
         bool isFainted() const;
 
         void heal();
+
+        void selectAndUseMove(Pokemon* target);
+
+        void printAvailableMoves();
+
+        int selectMove();
+
+        void useMove(Move selectedMove,Pokemon* target);
     };
 }

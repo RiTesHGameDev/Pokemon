@@ -1,6 +1,6 @@
 #pragma once
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Grass.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
+#include "../../include/Pokemon/Grass.hpp"
+#include "../../include/Character/Player/Player.hpp"
 #include <vector>
 using namespace N_Player;
 using namespace N_Pokemon;
@@ -12,15 +12,16 @@ namespace N_Main
 	class Game
 	{
 		bool keepPlaying = true;
-		int choice;
+		//int choice;
 
 	private:
 		Grass forestGrass;
-		Grass caveGrass;
+		Pokemon* wildPokemon;
 
 	public:
 		Game();
-		void gameLoop(Player& player);
-
+		~Game();
+		void gameLoop(Player* player);
+		void visitPokeCentre(Player* player);
 	};
 }

@@ -1,6 +1,5 @@
 #pragma once
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemon.hpp"
-//using namespace N_Pokemon;
+#include "../../../include/Pokemon/Pokemon.hpp"
 
 namespace N_Pokemon
 {
@@ -8,10 +7,9 @@ namespace N_Pokemon
 	{
 		class Squirtle :public Pokemon
 		{
-		private:
-			void WaterSplash(Pokemon& target);
-		public:
+			public:
 			Squirtle();
+			void attack(Move selectedMove,Pokemon* target)override;
 		};
 	}
 }

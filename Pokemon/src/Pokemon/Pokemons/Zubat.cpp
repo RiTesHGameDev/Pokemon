@@ -1,18 +1,30 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Zubat.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+#include "../../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
+using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Electric, 100, 20) {}
+		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Electric, 100, 20,(Move("Super Sonic", 20),Move("Leech Life",10))) {}
 
-		void Zubat::supersonic(Pokemon& target)
+		void Zubat::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Supersonic on" << target.getName() << endl;
-			target.takeDamage(20);
+			Pokemon::attack(selectedMove,target);
+
+			if (selectedMove.name == "Leech Life") 
+			{
+				int healthRecovery = static_cast<int>(selectedMove.power * 0.6f);
+				this->health += healthRecovery;
+
+				if (health > this->maxHealth)
+					this->health = this->maxHealth;
+
+				cout << healthRecovery << " HP regained !" << endl;
+			}
 		}
 	}
 }

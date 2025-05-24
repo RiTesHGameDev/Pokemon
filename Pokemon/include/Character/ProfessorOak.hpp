@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
+#include "../../include/Character/Player/Player.hpp"
 using namespace N_Player;
 using namespace std;
 namespace N_Character

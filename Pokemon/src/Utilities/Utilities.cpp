@@ -1,6 +1,6 @@
 #include <iostream>
 #include <limits>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
+#include "../../include/Utilities/Utilities.hpp"
 using namespace std;
 
 namespace N_Utilities

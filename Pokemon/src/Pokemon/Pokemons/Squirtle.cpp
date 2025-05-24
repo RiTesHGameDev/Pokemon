@@ -1,18 +1,30 @@
 #include <iostream>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Pokemons/Squirtle.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-using namespace N_Pokemon;
+#include "../../../include/Pokemon/Pokemons/Squirtle.hpp"
+#include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
+using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35) {}
+		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35,(Move("Water Splash", 35), Move("Rapid Spin", 5))){}
 
-		void Squirtle::WaterSplash(Pokemon& target)
+		void Squirtle::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Water Splash on" << target.getName() << endl;
-			target.takeDamage(20);
+			Pokemon::attack(selectedMove,target);
+
+			if (selectedMove.name == "Rapid Spin") 
+			{
+				int randomNumber = (rand() % 4) + 2;
+
+				for(int i = 0 ; i < randomNumber ; ++i)
+				{
+					Pokemon::attack(selectedMove, target);
+				}
+				cout << "Zubat hit the opponent with " << randomNumber << " times !" << endl;
+			}		
 		}
 	}
 }

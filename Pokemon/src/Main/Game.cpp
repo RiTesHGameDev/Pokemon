@@ -1,26 +1,34 @@
 #include <iostream>
 #include <string>
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Utilities/Utilities.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Character/Player/Player.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Main/Game.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Grass.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/WildEncounterManager.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/PokemonType.hpp"
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Battle/BattleManager.hpp"
+#include "../../include/Utilities/Utilities.hpp"
+#include "../../include/Main/Game.hpp"
+#include "../../include/Battle/WildEncounterManager.hpp"
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Pokemon/PokemonType.hpp"
+#include "../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../include/Pokemon/Pokemons/Pidgey.hpp"
+using namespace N_Pokemons;
 using namespace N_Utilities;
-using namespace N_Player;
 using namespace N_Pokemon;
 using namespace N_Battle;
+using namespace std;
 
 namespace N_Main 
 {
     Game::Game()
     {
-        forestGrass = Grass{ "Forest",{ Pokemon{"Zubat",PokemonType::Poison,30},Pokemon{"Caterpie",PokemonType::Bug,35},Pokemon{"Pidgey",PokemonType::Normal,35}}, 80 };
-
-        caveGrass = Grass{ "Cave",{Pokemon{"Zubat", PokemonType::Poison, 30}, Pokemon{"Geodude", PokemonType::Rock, 50}},80 };
+        forestGrass = Grass{ "Forest",{new Zubat(),new Pidgey(),new Caterpie()}, 80 };
     }
-    void Game::gameLoop(Player& player)
+    Game::~Game() {
+        delete(wildPokemon);
+    }
+    void Game::visitPokeCentre(Player * player) {
+        cout << "You have arrived at Poke Centre !" << endl;
+        player->chosenPokemon->heal();
+        cout << player->chosenPokemon->getName() << "'s health is fully restored." << endl;
+    }
+    void Game::gameLoop(Player* player)
     {
         bool keepPlaying = true;
         int choice;
@@ -29,7 +37,7 @@ namespace N_Main
         while (keepPlaying)
         {
             Utilities::clearConsole();
-            cout << "What would you like to do next" << player.name << endl;
+            cout << "What would you like to do next" << player->name << endl;
             cout << "1.Battle wild pokemon" << endl;
             cout << "2.Visit PokeCenter" << endl;
             cout << "3.Challenge Gyms" << endl;
@@ -45,29 +53,27 @@ namespace N_Main
             case 1:
             {
                 WildEncounterManager encounterManager;
-                Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-                //cout << "A wild " << encounteredPokemon.name << " appeard !" << endl;
-                battleManager.startBattle(player, wildPokemon);
+                Pokemon* wildPokemon = &encounterManager.getRandomPokemonFromGrass(forestGrass);
+                wildPokemon->heal();
+                battleManager.startBattle(player,wildPokemon);
                 break;
             }
 
             case 2:
             {
-                cout << "You have arrived at Poke Centre !" << endl;
-                player.chosenPokemon.heal();
-                cout << player.chosenPokemon.getName() << "'s health is fully restored." << endl;
+                Game::visitPokeCentre(player);
                 break;
             }
 
             case 3:
             {
-                cout << player.name << " You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
+                cout << player->name << " You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!" << endl;
                 break;
             }
 
             case 4:
             {
-                cout << player.name << " You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'" << endl;
+                cout << player->name << " You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'" << endl;
                 break;
             }
 
@@ -97,7 +103,7 @@ namespace N_Main
             }
             }
             Utilities::waitForEnter();
-            cout << "Goodbye, " << player.name << "! Thanks for playing" << endl;
+            cout << "Goodbye, " << player->name << "! Thanks for playing" << endl;
         }
 
     }

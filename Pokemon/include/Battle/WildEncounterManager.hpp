@@ -1,5 +1,5 @@
 #pragma once
-#include "/Users/ritzr/OneDrive/Documents/GitHub/Pokemon/Pokemon/include/Pokemon/Grass.hpp"
+#include "../../include/Pokemon/Grass.hpp"
 #include <vector>
 using namespace N_Pokemon;
 
@@ -9,7 +9,7 @@ namespace N_Battle
 	{
 	public:
 		WildEncounterManager();
-		Pokemon getRandomPokemonFromGrass(const Grass& grass);
+		Pokemon &getRandomPokemonFromGrass(Grass & grass);
 	};
 }
 
