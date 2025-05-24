@@ -1,13 +1,14 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../../include/Pokemon/PokemonType.hpp"
+#include "../../include/Pokemon/Pokemon.hpp"
+#include "../../include/Pokemon/Move.hpp"
 using namespace std;
-
-//struct Move;
 
 namespace N_Pokemon
 {
+    enum class PokemonType;
+    struct Move;
     class Pokemon
     {
         
@@ -21,7 +22,7 @@ namespace N_Pokemon
         
 
     public:
-        //vector<Move>moves;
+        vector<Move>moves;
 
         void setName(string n);
         string getName();
@@ -38,13 +39,15 @@ namespace N_Pokemon
         void setAttackPower(int ap);
         int getAttackPower();
         //DEFAULT CONTRUCTOR
-        Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower);
+        Pokemon();
+        //Parameterize Contructor
+        Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower,Move p_selectedMove);
         //DEEP COPY CONTRUCTOR
         Pokemon(const Pokemon& other);
         //DESTRUCTOR
         ~Pokemon();
 
-        virtual void attack(Pokemon*target) = 0;
+        virtual void attack(Move selectedMove,Pokemon*target) = 0;
 
         void takeDamage(int damage);
 
@@ -52,12 +55,12 @@ namespace N_Pokemon
 
         void heal();
 
-        //void selectAndUseMove(Pokemon* target);
+        void selectAndUseMove(Pokemon* target);
 
-        /*void printAvailableMoves();
+        void printAvailableMoves();
 
         int selectMove();
 
-        void useMove(Move selectedMove,Pokemon* target);*/
+        void useMove(Move selectedMove,Pokemon* target);
     };
 }

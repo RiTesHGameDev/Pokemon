@@ -1,33 +1,32 @@
 #include <iostream>
 #include "../../../include/Pokemon/Pokemons/Pikachu.hpp"
 #include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 15) {}
+		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 25,(Move("Thunder Shock",25),Move("Thunder Bolt",80))){}
 
-		void Pikachu::thunderShock(Pokemon* target)
+		void Pikachu::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Thunder Shock on" << target->getName() << endl;
+			Pokemon::attack(selectedMove, target);
 
-			N_Utilities::Utilities::waitForEnter();
+			if(selectedMove.name == "Thunder Bolt")
+			{
+				int HitChance = rand() % 100;
 
-			cout << "...\n";
+				if (HitChance <= 80)
 
-			N_Utilities::Utilities::waitForEnter();
-
-			target->takeDamage(attackPower);
-
-			if (target->isFainted())
-				cout << target->getName() << " fainted!\n";
+					Pokemon::attack(selectedMove, target);
+				
+					cout << name << " hit again with a second " << selectedMove.name << endl;
+			}
 			else
-				cout << target->getName() << " has " << target->getHealth() << " HP left.\n";
-		}
-		void Pikachu::attack(Pokemon* target) {
-			thunderShock(target);
+				cout << target->getName() << " dodged the second hit" << endl;
 		}
 	}
 }

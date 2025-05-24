@@ -7,11 +7,9 @@ namespace N_Pokemon
 	{
 		class Caterpie :public Pokemon
 		{
-		private:
-			void bugBite(Pokemon* target);
-		public:
+			public:
 			Caterpie();
-			void attack(Pokemon * target)override;
+			void attack(Move selectedMove,Pokemon * target)override;
 		};
 	}
 }

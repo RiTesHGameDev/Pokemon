@@ -7,7 +7,7 @@ namespace N_Pokemon {
 		string name;
 		int power;
 
-		Move(const string&moveName , int movePower ) 
+		Move(const string& moveName , int movePower ) 
 		{
 			name = moveName;
 			power = movePower;

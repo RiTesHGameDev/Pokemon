@@ -1,37 +1,30 @@
 #include <iostream>
 #include "../../../include/Pokemon/Pokemons/Zubat.hpp"
 #include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Electric, 100, 20) {}
+		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Electric, 100, 20,(Move("Super Sonic", 20),Move("Leech Life",10))) {}
 
-		void Zubat::supersonic(Pokemon* target)
+		void Zubat::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Supersonic on" << target->getName() << endl;
+			Pokemon::attack(selectedMove,target);
 
-			N_Utilities::Utilities::waitForEnter();
-
-			cout << "...\n";
-
-			N_Utilities::Utilities::waitForEnter();
-
-			target->takeDamage(attackPower);
-
-			if (target->isFainted())
+			if (selectedMove.name == "Leech Life") 
 			{
-				cout << target->getName() << " fainted" << endl;
+				int healthRecovery = static_cast<int>(selectedMove.power * 0.6f);
+				this->health += healthRecovery;
+
+				if (health > this->maxHealth)
+					this->health = this->maxHealth;
+
+				cout << healthRecovery << " HP regained !" << endl;
 			}
-			else
-			{
-				cout << target->getName() << " has" << target->getHealth() << "HP left" << endl;
-			}
-		}
-		void Zubat::attack(Pokemon* target) {
-			supersonic(target);
 		}
 	}
 }

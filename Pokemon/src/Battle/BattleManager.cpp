@@ -23,13 +23,13 @@ namespace N_Battle
 		{
 			if (battleState.playerTurn == true)
 			{
-				battleState.playerPokemon->attack(battleState.wildPokemon);
+				battleState.playerPokemon->selectAndUseMove(battleState.wildPokemon);
 				updateBattleState();
 				battleState.playerTurn = false;
 			} 
 			else
 			{
-				battleState.wildPokemon->attack(battleState.playerPokemon);
+				battleState.wildPokemon->selectAndUseMove(battleState.playerPokemon);
 				updateBattleState();
 				battleState.playerTurn = true;
 			}
@@ -60,5 +60,8 @@ namespace N_Battle
 		else if (battleState.wildPokemon->isFainted()) {
 			battleState.battleOnGoing = false;
 		}
+	}
+	void BattleManager::stopBattle() {
+		battleState.battleOnGoing = false;
 	}
 }

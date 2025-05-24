@@ -1,38 +1,30 @@
 #include <iostream>
 #include "../../../include/Pokemon/Pokemons/Squirtle.hpp"
 #include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35) {}
+		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35,(Move("Water Splash", 35), Move("Rapid Spin", 5))){}
 
-		void Squirtle::WaterSplash(Pokemon* target)
+		void Squirtle::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Water Splash on" << target->getName() << endl;
+			Pokemon::attack(selectedMove,target);
 
-			N_Utilities::Utilities::waitForEnter();
-
-			cout << "...\n";
-
-			N_Utilities::Utilities::waitForEnter();
-
-			target->takeDamage(attackPower);
-
-			if(target->isFainted())
+			if (selectedMove.name == "Rapid Spin") 
 			{
-				cout << target->getName() << " fainted" << endl;
-			}
-			else
-			{
-				cout << target->getName() << " has" << target->getHealth() << "HP left" << endl;
-			}
-		}
-		void Squirtle::attack(Pokemon* target) 
-		{
-			WaterSplash(target);
+				int randomNumber = (rand() % 4) + 2;
+
+				for(int i = 0 ; i < randomNumber ; ++i)
+				{
+					Pokemon::attack(selectedMove, target);
+				}
+				cout << "Zubat hit the opponent with " << randomNumber << " times !" << endl;
+			}		
 		}
 	}
 }

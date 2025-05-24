@@ -13,6 +13,7 @@ namespace N_Battle
 
 		void startBattle(Player* player, Pokemon* wildPokemon);
 		void updateBattleState();
+		void stopBattle();
 
 	private:
 		BattaleState battleState;

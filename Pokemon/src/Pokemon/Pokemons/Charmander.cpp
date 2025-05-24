@@ -1,38 +1,28 @@
 #include <iostream>
 #include "../../../include/Pokemon/Pokemons/Charmander.hpp"
 #include "../../../include/Utilities/Utilities.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
 using namespace N_Utilities;
 
 namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Charmander::Charmander() :Pokemon("Charmander", PokemonType::Fire, 100, 35) {}
+		Charmander::Charmander() :Pokemon("Charmander", PokemonType::Fire, 100, 35,(Move("Flame Brust", 35),Move("Blazing Charge",70))){}
 
-		void Charmander::flameBrust(Pokemon* target)
+		void Charmander::attack(Move selectedMove,Pokemon* target) 
 		{
-			cout << name << " uses Flame Thrower on" << target->getName() << endl;
+			Pokemon::attack(selectedMove,target);
 
-			N_Utilities::Utilities::waitForEnter();
-
-			cout << "...\n";
-
-			N_Utilities::Utilities::waitForEnter();
-
-			target->takeDamage(attackPower);
-
-			if (target->isFainted())
+			if(selectedMove.name == "Blazing Charge") 
 			{
-				cout << target->getName() << " fainted!" << endl;
+				this->takeDamage(10);
+
+				cout << name << " takes 10 recoil damage from the Blazing Charge!" << endl;
+
+				N_Utilities::Utilities::waitForEnter();
 			}
-			else
-			{
-				cout << target->getName() << " has " << target->getHealth() << " HP left." << endl;
-			}
-		}
-		void Charmander::attack(Pokemon* target) 
-		{
-			flameBrust(target);
 		}
 	}
 }
