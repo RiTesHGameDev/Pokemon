@@ -16,7 +16,7 @@ namespace N_Pokemon
 		{
 			Pokemon::attack(selectedMove, target);
 
-			if (selectedMove.name == "Vine Whip")
+			if (selectedMove.name == "Tackle")
 			{
 				int secondHitChance = rand() % 2;
 

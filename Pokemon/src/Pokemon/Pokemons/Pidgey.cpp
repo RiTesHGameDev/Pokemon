@@ -11,26 +11,27 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35,(Move("Wind Attack", 35),Move("Gust",15))){}
+		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, (Move("Wind Attack", 35), Move("Gust", 15))) {}
 
-		void Pidgey::attack(Move selectedMove,Pokemon* target) 
+		void Pidgey::attack(Move selectedMove, Pokemon* target)
 		{
-			Pokemon::attack(selectedMove,target);
+			Pokemon::attack(selectedMove, target);
 
 			if (selectedMove.name == "Gust")
 			{
-				
 				int hitChance = rand() % 100;
 
-				if (hitChance <= 20) 
+				if (hitChance <= 20)
 				{
 					cout << "It blew up the enemy away! " << endl;
-					
-					BattleManager::stopBattle;
-				}
-			else
-				cout << target->getName() << " dodged the second hit" << endl;
 
+					void (BattleManager:: * funcPtr)() = &BattleManager::stopBattle;
+				}
+				else
+					cout << target->getName() << " dodged the second hit" << endl;
+
+			}
 		}
+
 	}
 }

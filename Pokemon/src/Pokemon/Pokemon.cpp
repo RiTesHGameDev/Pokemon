@@ -77,6 +77,7 @@ namespace N_Pokemon
     void Pokemon::printAvailableMoves() 
     {
         cout << getName() << "'s available moves." << endl;
+        cout << "--------------------------------" << endl;
 
         moves.push_back(Move("Vine Whip", 35));
         moves.push_back(Move("Flame Brust", 35));
@@ -86,18 +87,20 @@ namespace N_Pokemon
         moves.push_back(Move("Wing Attack", 35));
         moves.push_back(Move("Super Sonic", 20));
 
-        for (size_t i = 0; i <= moves.size();++i) 
+        for (size_t i = 0; i < moves.size();++i)
         {
-            cout << i + 1 << ":" << moves[i].name << "Power :" << moves[i].power << endl;
+            cout << i + 1 << ". " << moves[i].name << " --> Power :" << moves[i].power << endl;
         }
+        cout << "--------------------------------" << endl;
     }
     void Pokemon::selectAndUseMove(Pokemon* target)
     {
         printAvailableMoves();
 
         int choice = selectMove();
-        Move selectedMove = moves[choice - 1];
 
+        Move selectedMove = moves[choice-1];
+        
         useMove(selectedMove, target);
     }
     int Pokemon::selectMove() 
@@ -107,7 +110,7 @@ namespace N_Pokemon
 
         cin >> choice;
 
-        while (choice < 1 || static_cast<int>(moves.size()))
+        while (choice < 1 || choice > static_cast<int>(moves.size()))
         {
             cout << "Invalid Choice !" << endl;
             cin >> choice;
