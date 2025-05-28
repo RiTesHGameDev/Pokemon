@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Caterpie::Caterpie() :Pokemon("Caterpie", PokemonType::Electric, 100, 25, (Move("Bug Bite",25),Move("Sticky Web",10))){}
+		Caterpie::Caterpie() :Pokemon("Caterpie", PokemonType::Electric, 100, 25, { Move("Bug Bite",25),Move("Sticky Web",10) }) {}
 
 		void Caterpie::attack(Move selectedMove, Pokemon* target)
 		{
@@ -23,7 +23,15 @@ namespace N_Pokemon
 
 				cout << target->getName() << "'s next attack will be reduced by " << reducedDamage << " damage!" << endl;
 			}
-				
+			if (selectedMove.name == "Bug bite")
+
+			{
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::PARALYZED);
+
+			}
 		}
 	}
 }

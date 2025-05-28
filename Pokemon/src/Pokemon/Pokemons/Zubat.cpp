@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Electric, 100, 20,(Move("Super Sonic", 20),Move("Leech Life",10))) {}
+		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Earth, 100, 20, { Move("Super Sonic", 20),Move("Leech Life",10) }) {}
 
 		void Zubat::attack(Move selectedMove,Pokemon* target) 
 		{
@@ -22,6 +22,10 @@ namespace N_Pokemon
 
 				if (health > this->maxHealth)
 					this->health = this->maxHealth;
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::POISONED);
 
 				cout << healthRecovery << " HP regained !" << endl;
 			}

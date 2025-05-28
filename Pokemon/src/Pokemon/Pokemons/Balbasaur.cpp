@@ -10,7 +10,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Balbasaur::Balbasaur() :Pokemon("Balbasaur", PokemonType::Grass, 100, 35, (Move("Vine Whip", 35),Move("Tackle", 15))) {}
+		Balbasaur::Balbasaur() :Pokemon("Balbasaur", PokemonType::Grass, 100, 35, { Move("Vine Whip", 35),Move("Tackle", 15) }) {}
 
 		void Balbasaur::attack(Move selectedMove,Pokemon* target) 
 		{
@@ -27,7 +27,19 @@ namespace N_Pokemon
 					cout << name << " hit again with a second " << selectedMove.name << endl;
 			}
 			else
+			{
 				cout << target->getName() << " dodged the second hit" << endl;
+			}
+
+			if (selectedMove.name == "Vine Whip")
+
+			{
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::POISONED);
+
+			}
 		}
 	}
 }

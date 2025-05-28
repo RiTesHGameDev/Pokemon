@@ -1,19 +1,19 @@
 #pragma once
-#include "../../../include/Pokemon/StatusEffect/IStatusEffect.hpp"
-
+#include <string>
+using namespace std;
+#include "../../../include/Pokemon/IStatusEffect.hpp"
 namespace N_Pokemon
 {
 	namespace N_StatusEffect
 	{
-		class Poison :public IStatusEffect
+		class Poison : public IStatusEffect
 		{
-		private:
 			int turnLeft;
 		public:
-			void applyEffect(Pokemon* target)override;
-			string getEffectName()override;
-			bool turnEndEffect(Pokemon* target)override;
-			void clearEffect(Pokemon* target)override;
+			void applyEffect(Pokemon* target) override;
+			std::string getEffectName()const override;
+			bool turnEndEffect(Pokemon* target) override;
+			void clearEffect(Pokemon* target) override;
 		};
 
 	}

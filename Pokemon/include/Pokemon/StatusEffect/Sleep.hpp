@@ -6,7 +6,7 @@ namespace N_Pokemon
 {
 	namespace N_StatusEffect
 	{
-		class ParalyzedEffect : public IStatusEffect
+		class Sleep : public IStatusEffect
 		{
 			int turnLeft;
 		public:

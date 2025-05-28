@@ -9,11 +9,11 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 25,(Move("Thunder Shock",25),Move("Thunder Bolt",80))){}
+		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 25, { Move("Thunder Shock",25),Move("QUICK ATTACK", 10),Move("Thunder Bolt",80) }) {}
 
 		void Pikachu::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove, target);
+			//Pokemon::attack(selectedMove, target);
 
 			if(selectedMove.name == "Thunder Bolt")
 			{
@@ -23,10 +23,20 @@ namespace N_Pokemon
 
 					Pokemon::attack(selectedMove, target);
 				
-					cout << name << " hit again with a second " << selectedMove.name << endl;
+					cout << name << " striked again with a second Hit " << selectedMove.name << endl;
 			}
 			else
 				cout << target->getName() << " dodged the second hit" << endl;
+
+			if (selectedMove.name == "Thunder Shock")
+
+			{
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::PARALYZED);
+
+			}
 		}
 	}
 }
