@@ -24,8 +24,8 @@ namespace N_Pokemon
 				cout << "Zubat hit the opponent with " << randomNumber << " times !" << endl;
 			}
 			if (selectedMove.name == "Water Splash")
-
 			{
+				Pokemon::attack(selectedMove, target);
 
 				if (target->canApplyEffect())
 

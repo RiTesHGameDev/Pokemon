@@ -34,6 +34,7 @@ namespace N_Pokemon
 			if (selectedMove.name == "Flame Brust")
 
 			{
+				Pokemon::attack(selectedMove, target);
 
 				if (target->canApplyEffect())
 

@@ -33,6 +33,7 @@ namespace N_Pokemon
 			if (selectedMove.name == "Vine Whip")
 
 			{
+				Pokemon::attack(selectedMove, target);
 
 				if (target->canApplyEffect())
 

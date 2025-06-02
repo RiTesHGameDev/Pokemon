@@ -28,8 +28,8 @@ namespace N_Pokemon
 				cout << target->getName() << " dodged the second hit" << endl;
 
 			if (selectedMove.name == "Thunder Shock")
-
 			{
+				Pokemon::attack(selectedMove, target);
 
 				if (target->canApplyEffect())
 

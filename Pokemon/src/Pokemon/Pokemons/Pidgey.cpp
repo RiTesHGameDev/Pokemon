@@ -11,7 +11,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, { Move("Wind Attack", 35), Move("Gust", 15) }) {}
+		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, { Move("Wind Attack", 35), Move("Gust", 100) }) {}
 
 		void Pidgey::attack(Move selectedMove, Pokemon* target)
 		{
@@ -33,8 +33,8 @@ namespace N_Pokemon
 
 			}
 			if (selectedMove.name == "Wind Attack")
-
 			{
+				Pokemon::attack(selectedMove, target);
 
 				if (target->canApplyEffect())
 

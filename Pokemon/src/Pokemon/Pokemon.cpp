@@ -194,10 +194,10 @@ namespace N_Pokemon
     }
 
     void Pokemon::applyEffect(StatusEffectType effectToApply) {
-        if (appliedEffect != nullptr) {
+       /* if (appliedEffect != nullptr) {
             delete appliedEffect;
             appliedEffect = nullptr;
-        }
+        }*/
         switch (effectToApply) {
         case StatusEffectType::PARALYZED:
             appliedEffect = new ParalyzedEffect();
