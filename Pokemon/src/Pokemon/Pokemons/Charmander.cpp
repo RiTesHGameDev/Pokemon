@@ -17,11 +17,18 @@ namespace N_Pokemon
 
 			if(selectedMove.name == "Blazing Charge") 
 			{
-				this->takeDamage(10);
+				if (rand() % 100 < 40) 
+				{
+					this->takeDamage(10);
 
-				cout << name << " takes 10 recoil damage from the Blazing Charge!" << endl;
+					cout << name << " takes 10 recoil damage from the Blazing Charge!" << endl;
 
-				N_Utilities::Utilities::waitForEnter();
+					N_Utilities::Utilities::waitForEnter();
+				}
+				else {
+					cout << "... but it missed!\n";
+				}
+				
 			}
 			if (selectedMove.name == "Flame Brust")
 

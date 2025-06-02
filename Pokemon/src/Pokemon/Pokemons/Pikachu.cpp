@@ -19,7 +19,7 @@ namespace N_Pokemon
 			{
 				int HitChance = rand() % 100;
 
-				if (HitChance <= 80)
+				if (HitChance <= 40)
 
 					Pokemon::attack(selectedMove, target);
 				
