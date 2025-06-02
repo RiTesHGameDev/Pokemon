@@ -14,7 +14,6 @@ namespace N_Pokemon
 
 		void Balbasaur::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove, target);
 
 			if (selectedMove.name == "Tackle")
 			{

@@ -13,8 +13,6 @@ namespace N_Pokemon
 
 		void Zubat::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove,target);
-
 			if (selectedMove.name == "Leech Life") 
 			{
 				int healthRecovery = static_cast<int>(selectedMove.power * 0.6f);

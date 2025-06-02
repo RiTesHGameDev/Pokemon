@@ -13,8 +13,7 @@ namespace N_Pokemon
 
 		void Pikachu::attack(Move selectedMove,Pokemon* target) 
 		{
-			//Pokemon::attack(selectedMove, target);
-
+			
 			if(selectedMove.name == "Thunder Bolt")
 			{
 				int HitChance = rand() % 100;

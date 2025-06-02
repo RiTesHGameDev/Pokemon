@@ -15,7 +15,6 @@ namespace N_Pokemon
 
 		void Pidgey::attack(Move selectedMove, Pokemon* target)
 		{
-			Pokemon::attack(selectedMove, target);
 
 			if (selectedMove.name == "Gust")
 			{

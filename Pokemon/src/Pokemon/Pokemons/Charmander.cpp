@@ -13,21 +13,22 @@ namespace N_Pokemon
 
 		void Charmander::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove,target);
-
 			if(selectedMove.name == "Blazing Charge") 
 			{
-				if (rand() % 100 < 40) 
-				{
-					this->takeDamage(10);
+				this->takeDamage(10);
 
-					cout << name << " takes 10 recoil damage from the Blazing Charge!" << endl;
+				cout << name << " takes 10 recoil damage from the Blazing Charge!" << endl;
 
-					N_Utilities::Utilities::waitForEnter();
+				int HitChance = rand() % 100;
+
+				if (HitChance <= 40) {
+					Pokemon::attack(selectedMove, target);
 				}
-				else {
+				else 
 					cout << "... but it missed!\n";
-				}
+
+				N_Utilities::Utilities::waitForEnter();
+				
 				
 			}
 			if (selectedMove.name == "Flame Brust")

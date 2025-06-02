@@ -13,8 +13,6 @@ namespace N_Pokemon
 
 		void Squirtle::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove,target);
-
 			if (selectedMove.name == "Rapid Spin") 
 			{
 				int randomNumber = (rand() % 4) + 2;

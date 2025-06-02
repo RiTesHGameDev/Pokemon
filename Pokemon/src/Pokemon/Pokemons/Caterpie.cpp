@@ -13,8 +13,6 @@ namespace N_Pokemon
 
 		void Caterpie::attack(Move selectedMove, Pokemon* target)
 		{
-			Pokemon::attack(selectedMove, target);
-
 			if (selectedMove.name == "Sticky Web")
 			{
 				int reducedDamage = 5;
