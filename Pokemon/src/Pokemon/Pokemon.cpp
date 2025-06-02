@@ -97,7 +97,7 @@ namespace N_Pokemon
         cout << getName() << "'s available moves." << endl;
         cout << "--------------------------------" << endl;
 
-        vector<Move> moves = {
+     /*   vector<Move> moves = {
             Move("Vine Whip", 35),
             Move("Flame Brust", 35),
             Move("Water Splash", 35),
@@ -105,7 +105,7 @@ namespace N_Pokemon
             Move("Bug Bite", 25),
             Move("Wing Attack", 35),
             Move("Super Sonic", 20)
-        };
+        };*/
 
         for (size_t i = 0; i < moves.size();++i)
         {
