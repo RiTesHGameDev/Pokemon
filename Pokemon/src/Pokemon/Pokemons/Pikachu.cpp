@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 25, { Move("Thunder Shock",25),Move("QUICK ATTACK", 10),Move("Thunder Bolt",80) }) {}
+		Pikachu::Pikachu() :Pokemon("Pikachu", PokemonType::Electric, 100, 25, { Move("Thunder Shock",25,25),Move("QUICK ATTACK", 10,10),Move("Thunder Bolt",80,80) }) {}
 
 		void Pikachu::attack(Move selectedMove,Pokemon* target) 
 		{

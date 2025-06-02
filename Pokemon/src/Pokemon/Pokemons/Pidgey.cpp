@@ -11,7 +11,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, { Move("Wind Attack", 35), Move("Gust", 100) }) {}
+		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, { Move("Wind Attack",35, 35), Move("Gust", 100,100) }) {}
 
 		void Pidgey::attack(Move selectedMove, Pokemon* target)
 		{

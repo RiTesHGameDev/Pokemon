@@ -65,6 +65,8 @@ namespace N_Pokemon
 
         void reduceAttackPower(int reduced_damage);
 
+        void restoreAttackPower();
+
         void applyEffect(N_Pokemon::N_StatusEffect::StatusEffectType effectToApply);
 
         bool canApplyEffect();

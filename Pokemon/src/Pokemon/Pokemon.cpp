@@ -109,7 +109,7 @@ namespace N_Pokemon
 
         for (size_t i = 0; i < moves.size();++i)
         {
-            cout << i + 1 << ". " << moves[i].name << " --> Power :" << moves[i].power << endl;
+            cout << i + 1 << ". " << moves[i].name << " --> Power :" << moves[i].currentPower << endl;
         }
         cout << "--------------------------------" << endl;
     }
@@ -158,18 +158,28 @@ namespace N_Pokemon
 
     void Pokemon::attack(Move selectedMove,Pokemon* target) 
     {
-        target->takeDamage(selectedMove.power);
+        target->takeDamage(selectedMove.currentPower);
     }
 
     void Pokemon::reduceAttackPower(int reduced_damage)
     {
         for (int i = 0; i < moves.size(); i++)
         {
-            moves[i].power -= reduced_damage;
-            if (moves[i].power < 0)
-                moves[i].power = 0;
+            moves[i].currentPower -= reduced_damage;
+            if (moves[i].currentPower < 0)
+                moves[i].currentPower = 0;
         }
-        cout << " Attack Power Reducing by:" << reduced_damage << endl;
+        cout << "Attack Power Reducing by:" << reduced_damage << endl;
+    }
+    
+    void Pokemon::restoreAttackPower() 
+    {
+        for (int i = 0; i < moves.size(); i++)
+        {
+            if (moves[i].currentPower < moves[i].maxPower)
+                moves[i].currentPower = moves[i].maxPower;
+        }
+        cout << "Attack Power Restored." << endl;
     }
 
     bool Pokemon::canAttack() {

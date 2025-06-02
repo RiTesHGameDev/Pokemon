@@ -9,13 +9,13 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Earth, 100, 20, { Move("Super Sonic", 20),Move("Leech Life",30) }) {}
+		Zubat::Zubat() :Pokemon("Zubat", PokemonType::Earth, 100, 20, { Move("Super Sonic",20, 20),Move("Leech Life",30,30) }) {}
 
 		void Zubat::attack(Move selectedMove,Pokemon* target) 
 		{
 			if (selectedMove.name == "Leech Life") 
 			{
-				int healthRecovery = static_cast<int>(selectedMove.power * 0.6f);
+				int healthRecovery = static_cast<int>(selectedMove.currentPower * 0.6f);
 				this->health += healthRecovery;
 
 				if (health > this->maxHealth)

@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35, { Move("Water Splash", 35), Move("Rapid Spin", 5) }) {}
+		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35, { Move("Water Splash", 35,35), Move("Rapid Spin", 5,5) }) {}
 
 		void Squirtle::attack(Move selectedMove,Pokemon* target) 
 		{

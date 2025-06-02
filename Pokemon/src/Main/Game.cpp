@@ -26,6 +26,7 @@ namespace N_Main
     void Game::visitPokeCentre(Player * player) {
         cout << "You have arrived at Poke Centre !" << endl;
         player->chosenPokemon->heal();
+        player->chosenPokemon->restoreAttackPower();
         cout << player->chosenPokemon->getName() << "'s health is fully restored." << endl;
     }
     void Game::gameLoop(Player* player)

@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Charmander::Charmander() :Pokemon("Charmander", PokemonType::Fire, 100, 35, { Move("Flame Brust", 35),Move("Blazing Charge",70) }) {}
+		Charmander::Charmander() :Pokemon("Charmander", PokemonType::Fire, 100, 35, { Move("Flame Brust",35, 35),Move("Blazing Charge",70,70) }) {}
 
 		void Charmander::attack(Move selectedMove,Pokemon* target) 
 		{
