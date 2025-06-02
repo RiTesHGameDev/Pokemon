@@ -179,7 +179,6 @@ namespace N_Pokemon
             if (moves[i].currentPower < moves[i].maxPower)
                 moves[i].currentPower = moves[i].maxPower;
         }
-        cout << "Attack Power Restored." << endl;
     }
 
     bool Pokemon::canAttack() {

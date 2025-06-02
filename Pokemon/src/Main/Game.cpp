@@ -56,6 +56,7 @@ namespace N_Main
                 WildEncounterManager encounterManager;
                 Pokemon* wildPokemon = &encounterManager.getRandomPokemonFromGrass(forestGrass);
                 wildPokemon->heal();
+                wildPokemon->restoreAttackPower();
                 battleManager.startBattle(player,wildPokemon);
                 break;
             }
@@ -63,6 +64,7 @@ namespace N_Main
             case 2:
             {
                 Game::visitPokeCentre(player);
+                cout << "Attack Power Restored." << endl;
                 break;
             }
 
