@@ -21,11 +21,13 @@ namespace N_Pokemon
 			{
 				int hitChance = rand() % 100;
 
-				if (hitChance <= 20)
+				if (hitChance <= 30)
 				{
 					cout << "It blew up the enemy away! " << endl;
 
-					void (BattleManager:: * funcPtr)() = &BattleManager::stopBattle;
+					target->setHealth(0);
+
+					Utilities::waitForEnter();
 				}
 				else
 					cout << target->getName() << " dodged the second hit" << endl;
