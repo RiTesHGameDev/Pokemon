@@ -9,12 +9,10 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35,(Move("Water Splash", 35), Move("Rapid Spin", 5))){}
+		Squirtle::Squirtle() :Pokemon("Squirtle", PokemonType::Water, 100, 35, { Move("Water Splash", 35,35), Move("Rapid Spin", 5,5) }) {}
 
 		void Squirtle::attack(Move selectedMove,Pokemon* target) 
 		{
-			Pokemon::attack(selectedMove,target);
-
 			if (selectedMove.name == "Rapid Spin") 
 			{
 				int randomNumber = (rand() % 4) + 2;
@@ -24,7 +22,16 @@ namespace N_Pokemon
 					Pokemon::attack(selectedMove, target);
 				}
 				cout << "Zubat hit the opponent with " << randomNumber << " times !" << endl;
-			}		
+			}
+			if (selectedMove.name == "Water Splash")
+			{
+				Pokemon::attack(selectedMove, target);
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::SLEEPING);
+
+			}
 		}
 	}
 }

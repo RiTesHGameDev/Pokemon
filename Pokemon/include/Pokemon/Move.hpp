@@ -2,15 +2,20 @@
 #include <string>
 using namespace std;
 
-namespace N_Pokemon {
+namespace N_Pokemon
+{
 	struct Move {
 		string name;
-		int power;
+		int maxPower;
+		int currentPower;
 
-		Move(const string& moveName , int movePower ) 
+		//Move() : name("Unknown"), power(0) {}
+		Move(const string& moveName , int moveMaxPower ,int movePower ) 
 		{
 			name = moveName;
-			power = movePower;
+			maxPower = moveMaxPower;
+			currentPower = movePower;
+			
 		}
 	};
 }

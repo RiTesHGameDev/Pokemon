@@ -3,15 +3,18 @@
 #include <vector>
 #include "../../include/Pokemon/Pokemon.hpp"
 #include "../../include/Pokemon/Move.hpp"
+#include "../../include/Pokemon/IStatusEffect.hpp"
+#include "../../include/Pokemon/StatusEffect/StatusEffectType.hpp"
+using namespace N_Pokemon::N_StatusEffect;
 using namespace std;
 
 namespace N_Pokemon
 {
     enum class PokemonType;
     struct Move;
+
     class Pokemon
     {
-        
         //PROPERTIES
     protected:
         string name;
@@ -23,27 +26,24 @@ namespace N_Pokemon
 
     public:
         vector<Move>moves;
-
+        class IStatusEffect* appliedEffect;
         void setName(string n);
         string getName();
-
         PokemonType setType(PokemonType t);
         PokemonType getType();
-
         void setHealth(int h);
         int getHealth();
-
         void setMaxHealth(int mh);
         int getMaxHealth();
-
         void setAttackPower(int ap);
         int getAttackPower();
+
         //DEFAULT CONTRUCTOR
         Pokemon();
         //Parameterize Contructor
-        Pokemon(string p_name, PokemonType p_type, int p_maxHealth, int p_attackPower,Move p_selectedMove);
+        Pokemon(string p_name, PokemonType p_type, int p_health, int p_attackPower,vector<Move>p_moves);
         //DEEP COPY CONTRUCTOR
-        Pokemon(const Pokemon& other);
+        Pokemon(const Pokemon* other);
         //DESTRUCTOR
         ~Pokemon();
 
@@ -62,5 +62,18 @@ namespace N_Pokemon
         int selectMove();
 
         void useMove(Move selectedMove,Pokemon* target);
+
+        void reduceAttackPower(int reduced_damage);
+
+        void restoreAttackPower();
+
+        void applyEffect(N_Pokemon::N_StatusEffect::StatusEffectType effectToApply);
+
+        bool canApplyEffect();
+
+        void clearEffect();
+
+        bool canAttack();
+
     };
 }

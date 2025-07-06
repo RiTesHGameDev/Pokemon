@@ -11,26 +11,37 @@ namespace N_Pokemon
 {
 	namespace N_Pokemons
 	{
-		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35,(Move("Wind Attack", 35),Move("Gust",15))){}
+		Pidgey::Pidgey() :Pokemon("Pidgey", PokemonType::Normal, 100, 35, { Move("Wind Attack",35, 35), Move("Gust", 100,100) }) {}
 
-		void Pidgey::attack(Move selectedMove,Pokemon* target) 
+		void Pidgey::attack(Move selectedMove, Pokemon* target)
 		{
-			Pokemon::attack(selectedMove,target);
 
 			if (selectedMove.name == "Gust")
 			{
-				
 				int hitChance = rand() % 100;
 
-				if (hitChance <= 20) 
+				if (hitChance <= 30)
 				{
 					cout << "It blew up the enemy away! " << endl;
-					
-					BattleManager::stopBattle;
-				}
-			else
-				cout << target->getName() << " dodged the second hit" << endl;
 
+					target->setHealth(0);
+
+					Utilities::waitForEnter();
+				}
+				else
+					cout << target->getName() << " dodged the second hit" << endl;
+
+			}
+			if (selectedMove.name == "Wind Attack")
+			{
+				Pokemon::attack(selectedMove, target);
+
+				if (target->canApplyEffect())
+
+					target->applyEffect(StatusEffectType::SLEEPING);
+
+			}
 		}
+
 	}
 }

@@ -26,6 +26,7 @@ namespace N_Main
     void Game::visitPokeCentre(Player * player) {
         cout << "You have arrived at Poke Centre !" << endl;
         player->chosenPokemon->heal();
+        player->chosenPokemon->restoreAttackPower();
         cout << player->chosenPokemon->getName() << "'s health is fully restored." << endl;
     }
     void Game::gameLoop(Player* player)
@@ -55,6 +56,7 @@ namespace N_Main
                 WildEncounterManager encounterManager;
                 Pokemon* wildPokemon = &encounterManager.getRandomPokemonFromGrass(forestGrass);
                 wildPokemon->heal();
+                wildPokemon->restoreAttackPower();
                 battleManager.startBattle(player,wildPokemon);
                 break;
             }
@@ -62,6 +64,7 @@ namespace N_Main
             case 2:
             {
                 Game::visitPokeCentre(player);
+                cout << "Attack Power Restored." << endl;
                 break;
             }
 
